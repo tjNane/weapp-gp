@@ -1,0 +1,484 @@
+page{
+  padding-bottom: 100rpx;
+}
+/* 顶部大图 */
+.top-img{
+  height: 416rpx;
+  width: 100%;
+}
+
+/* tabbar */
+.tabbar{
+  width: 100%;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 32rpx;
+  margin-bottom: 30rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  background: white;
+}
+.tabbar .tab-item{
+  font-size: 32rpx;
+  position: relative;
+  height: 100%;
+  line-height: 88rpx;
+  font-weight: bold;
+}
+.tabbar .on{
+  color: #FD553A;
+}
+.tabbar .on::after{
+  content: '';
+  width: 128rpx;
+  height: 6rpx;
+  background: #FD553A;
+  border-radius: 3rpx;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.tab-fixed{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+/* 课程介绍 */
+.intro-title{
+  font-size: 40rpx;
+  margin-top: 30rpx;
+  font-weight: bold;
+}
+.introduce .info{
+  display: flex;
+  margin-top: 24rpx;
+}
+.introduce .info-item{
+  display: flex;  
+  align-items: center;
+  font-size: 26rpx;
+  color: #666;
+  margin-right: 47rpx;
+}
+.introduce .info-item image{
+  width: 18rpx;
+  height: 18rpx;
+  margin-right: 8rpx;
+}
+.introduce .course-price{
+  font-size: 42rpx;
+  color: #FD553A;
+  font-weight: bold;
+  margin: 32rpx 0 0;
+  padding-bottom: 30rpx;
+  border-bottom: 1rpx solid #ECECEC;
+}
+.introduce .course-price text{
+  font-size: 30rpx;
+  color: #C7C7C9;
+  font-weight: normal;
+}
+.introduce .to-listen{
+  height: 72rpx;
+  color: #FD553A;
+  background: #FEE9E5;
+  font-size: 28rpx;
+  padding: 0 25rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.introduce .to-listen image{
+  width: 32rpx;
+  height: 32rpx;
+}
+.list-title{
+  font-size: 36rpx;
+  line-height: 36rpx;
+  margin: 60rpx 0 38rpx;
+  font-weight: bold;
+}
+.introduce .teacher-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30rpx;
+}
+.introduce .teacher-title-left{
+  display: flex;
+  align-items: center;
+}
+.introduce .teacher-title .right-icon{
+  width: 14rpx;
+  height: 24rpx;
+}
+.introduce .teacher-img{
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  margin-right: 18rpx;
+}
+.introduce .sum-course{
+  color: #C7C7C9;
+  font-size: 24rpx;
+}
+.introduce .teacher-desc{
+  color: #666;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.introduce .teacher-item{
+  margin-bottom: 60rpx;
+}
+.introduce .check-all{
+  background:rgba(245,245,245,1);
+  border-radius:6px;
+  color: #666;
+  height: 72rpx;
+  line-height: 72rpx;
+  text-align: center;
+  font-size: 26rpx;
+}
+.pd30{
+  padding: 0 30rpx;
+}
+
+/* 图文介绍 */
+.picture-introduce{
+  margin-top: 72rpx;
+}
+.picture-introduce .picture{
+  width: 100%;
+}
+
+/* 底部按钮栏 */
+.bottom-bar{
+  height: 98rpx;
+  width: 100%;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+}
+.bottom-bar .btns{
+  width: 420rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 20rpx;
+}
+.bottom-bar .btns-item{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33.33%;
+}
+.bottom-bar button{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.bottom-bar .btns view{
+  color: #666;
+}
+.bottom-bar .btns image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-bottom: 4rpx;
+}
+.bottom-bar .check-in{
+  width: 300rpx;
+  height: 80rpx;
+  background: #FD553A;
+  color: white;
+  font-size: 32rpx;
+  border-radius: 6rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+
+/* 课程大纲 */
+.outline{
+  padding: 0 30rpx;
+}
+.outline .course-name{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 32rpx;
+  height: 96rpx;
+  border-bottom: 1rpx solid #ECECEC;
+}
+.outline .course-name image{
+  width: 24rpx;
+  height: 14rpx;
+}
+.outline .course-left{
+  display: flex;
+}
+.outline .course-name text:first-child{
+  color: #D0D0D0;
+  margin-right: 10rpx;
+}
+.outline .course-name text:nth-child(2){
+  width: 520rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.outline .sub-name{
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+}
+.outline .sub-name image{
+  width: 26rpx;
+  height: 26rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+.outline .course-time{
+  color: #C7C7C9;
+  font-size: 24rpx;
+  margin-top: 6rpx;
+  padding: 0 0 20rpx 36rpx;
+  border-bottom: 1rpx solid #ECECEC;
+}
+.outline .sub-course{
+  height: 126rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.pd50{
+  padding-left: 50rpx;
+}
+.rotate-img{
+  transform: rotate(180deg);
+}
+
+/* 学员评价 */
+.evaluate{
+  padding: 0 30rpx;
+}
+.evaluate-number{
+  height: 102rpx;
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  border-bottom: 1rpx solid #ECECEC;
+}
+.evaluate-number .evaluate-item{
+  display: flex;
+  align-items: center;
+  margin-right: 72rpx;
+}
+.evaluate-number .evaluate-item view:last-child{
+  color: #FEA835;
+  font-size: 36rpx;
+  margin-left: 15rpx;
+  font-weight: bold;
+}
+.evaluate .list-item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30rpx;
+  height: 112rpx;
+}
+.evaluate .list-item .user{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.evaluate .list-item image{
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.evaluate .star-wrap{
+  display: flex;
+}
+.evaluate .star-wrap image{
+  width: 20rpx;
+  height: 20rpx;
+  margin-right: 16rpx;
+}
+.evaluate .star-wrap image:last-child{
+  margin-right: 0;
+}
+.evaluate .evaluate-text{
+  font-size: 28rpx;
+}
+.evaluate .evaluate-time{
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}
+.evaluate .evaluate-time view{
+  color: #999;
+}
+.mb60{
+  margin-bottom: 60rpx;
+}
+
+/* 相关课程 */
+
+.result-list{
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.result-item{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40rpx;
+}
+.result-item .result-img{
+  width: 240rpx;
+  height: 134rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+  position: relative;
+}
+.result-item .result-img image{
+  width: 100%;
+  height: 100%;
+}
+.result-item .result-img .result-data{
+  width: 100%;
+  height: 48rpx;
+  display: flex;
+  align-items: center;
+  background: rgba(31, 31, 31, .14);
+  font-size: 24rpx;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.result-item .result-img .result-data text{
+  color: white;
+  padding-left: 10rpx;
+}
+.result-item .result-img .result-data view{
+  display: flex;
+  align-items: center;
+  margin-left: 15rpx;
+}
+.result-item .result-img .result-data view image{
+  width: 18rpx;
+  height: 18rpx;
+}
+.result-desc{
+  width: 430rpx;
+  font-size: 32rpx;
+}
+.result-desc .desc-title{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-bottom: 10rpx;
+}
+.result-desc .desc-price{
+  font-size: 32rpx;
+  color: #FD553A;
+  font-weight: bold;
+}
+.result-desc .desc-text{
+  font-size: 24rpx;
+  color: #999;
+}
+.relative-title{
+  font-size: 36rpx;
+  padding: 0 30rpx;
+  margin: 30rpx 0;
+}
+
+
+/* 海报弹窗 */
+.canvas{
+  width: 210px;
+  height: 300px;
+  border:1rpx solid rgba(227, 227, 227, 1);
+  box-shadow:2rpx 9rpx 38rpx 0px rgba(215,215,215,0.8);
+  border-radius:24rpx;
+}
+.share-success{
+  font-size: 26rpx;
+  color: #666;
+  margin-top: 30rpx;
+}
+.pop-btns{
+  height: 98rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 44rpx;
+}.pop-btns view{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  position: relative;
+  width: 50%;
+  height: 100%;
+}
+.pop-btns view:nth-child(2)::after{
+  content: '';
+  width: 1px;
+  height: 64rpx;
+  background: #E9E9E9;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+.pop-btns image{
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 14rpx;
+}
+.pop-btns .share-img{
+  width: 40rpx;
+  height: 40rpx;
+}
+.pop-btns button{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.desc-price text{
+  font-size: 26rpx;
+  color: #C7C7C9;
+  padding-left: 6rpx;
+  font-weight: normal;
+}
+.wxParse-p{
+  font-size: 30rpx;
+  padding: 0 30rpx;
+}

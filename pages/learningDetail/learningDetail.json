@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "clock-modal": "/components/Modal/modal"
+  },
+  "navigationBarTitleText": "课程详情"
+}

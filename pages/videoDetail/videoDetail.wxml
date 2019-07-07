@@ -1,0 +1,73 @@
+<!-- wifi环境下video -->
+<video src="{{videoDetail.courseurl}}" class='video' autoplay wx:if="{{isWifi}}"></video>
+
+<!-- 非wifi环境下video -->
+<view class='video-wrap' wx:else>
+  <video src="{{videoDetail.courseurl}}" class='video' id='video' autoplay="{{false}}" wx:if="{{!isWifi}}"></video>
+  <view class='cover' bindtap='playVideo' wx:if="{{showCover}}">
+    <image src='../../images/play.png'></image>
+    <view>使用流量播放</view>
+  </view>
+</view>
+
+<!-- 选项卡 -->
+<view class='tabbar'>
+  <view class='tab-item {{currentTab == index ? "on" : ""}}' wx:for="{{tabs}}" wx:key="index" bindtap='switchTab' data-idx='{{index}}'>{{item.text}}</view>
+</view>
+
+<!-- 视频简介 -->
+<view class='introduce' wx:if="{{currentTab == 0}}">
+  <view class='pd30'>
+    <view class='intro-title'>{{videoDetail.title}}</view>
+    <view class='info'>
+      <view class='info-item'>
+        <image src='../../images/learned.png'></image>
+        <text>{{videoDetail.hot}}热度</text>
+      </view>
+      <view class='info-item'>
+        <image src='../../images/good-comment.png'></image>
+        <text>好评率100%</text>
+      </view>
+    </view>
+    <!-- 老师介绍 -->
+    <block wx:if="{{videoDetail.techerList.length}}">
+      <view class='list-title'>老师介绍</view>
+      <view class='teacher-item'>
+        <view class='teacher-title'>
+          <view class='teacher-title-left'>
+            <image src='https:{{videoDetail.techerList[0].teacherImage}}' class='teacher-img'></image>
+            <view>{{videoDetail.techerList[0].teacherTag}} - {{videoDetail.techerList[0].teacherName}}</view>
+          </view>
+        </view>
+        <view class='teacher-desc'>{{videoDetail.techerList[0].teacherResume}}</view>
+      </view>
+    </block>
+  </view>
+</view>
+
+<!-- 相关视频 -->
+<view class='introduce' wx:if="{{currentTab == 1}}">
+  <view class='courses-list'>
+    <navigator url='../courseDetail/courseDetail?id={{item.id}}' class='courses-item' hover-class='none' wx:for="{{courseList}}" wx:key="index">
+      <view class='courses-img'>
+        <image src='{{item.picurl}}'></image>
+        <view class='courses-data'>
+          <view>
+            <image src='../../images/watched.png'></image>
+            <text>{{item.hot}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='courses-desc'>
+        <view class='desc-title'>{{item.title}}</view>
+        <view class='desc-text'>{{item.techerList && item.techerList[0].teacherName || '暂无'}}</view>
+      </view>
+    </navigator>
+  </view>
+</view>
+
+<!-- 分享按钮 -->
+<button open-type='share' class='share-btn'>
+  <image src='../../images/share-white.png'></image>
+  <text>分享获取1枚demo币</text>
+</button>

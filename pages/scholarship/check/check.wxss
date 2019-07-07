@@ -1,0 +1,64 @@
+page {
+  padding: 32rpx 32rpx 100rpx;
+  box-sizing: border-box;
+}
+
+.apply-title {
+  font-size: 48rpx;
+  font-weight: bold;
+}
+
+.item-title {
+  font-size: 32rpx;
+  margin: 60rpx 0 30rpx;
+  font-weight: bold;
+}
+.resume-info {
+  display: flex;
+  align-items: center;
+}
+.resume-info image {
+  width: 72rpx;
+  height: 72rpx;
+  margin-right: 28rpx;
+  border-radius: 4rpx;
+}
+.resume-info .resume-desc {
+  height: 72rpx;
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  min-width: 0;
+}
+.resume-info .resume-desc view:last-child {
+  font-size: 26rpx;
+  color: #C8C8C8;
+  margin-top: 4rpx;
+}
+.resume-info .resume-desc view:last-child text {
+  padding-left: 39rpx;
+}
+
+.intention .hope {
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+}
+.intention image {
+  width: 31rpx;
+  height: 22rpx;
+  margin: 0 32rpx;
+}
+.mb40 {
+  margin-bottom: 40rpx;
+}
+.modal-title {
+  font-size: 36rpx;
+  font-weight: 500;
+}
+.modal-text {
+  font-size: 28rpx;
+  margin-top: 30rpx;
+}

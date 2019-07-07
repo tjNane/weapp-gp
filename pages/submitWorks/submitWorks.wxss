@@ -1,0 +1,48 @@
+.wrap{
+  padding: 40rpx;
+}
+.tips{
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+}
+.tips image{
+  width: 22rpx;
+  height: 22rpx;
+  margin-right: 10rpx;
+}
+.tips view{
+  color: #999;
+}
+.input-wrap{
+  height: 70rpx;
+  border-bottom: 1px solid #FD553A;
+}
+.input-wrap input{
+  width: 100%;
+  height: 100%;
+  font-size: 28rpx;
+}
+.textarea{
+  width: 100%;
+  height: 130rpx;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  line-height: 1.7;
+  letter-spacing: 1px;
+}
+.pla{
+  font-size: 28rpx;
+  color: #999;
+}
+.submit{
+  width: 670rpx;
+  height: 80rpx;
+  background: #FD553A;
+  border-radius: 8rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: white;
+  font-size: 32rpx;
+  margin-top: 20rpx;
+}

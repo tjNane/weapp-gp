@@ -1,0 +1,11 @@
+<view class="container">
+  <view class='top'>
+    <image src='../../images/gold-coin.png'></image>
+    <view class='top-title'>demo</view>
+  </view>
+  <view class="bottom">
+    <view>该程序将获取以下授权</view>
+    <view>* 获取您的公开信息（昵称、头像等）</view>
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">允许</button>
+  </view>
+</view>

@@ -1,0 +1,27 @@
+<view class='wrap'>
+  <view class='info-item'>
+    <view>头像</view>
+    <image src='../../images/modal-img.png' class='user-img'></image>
+  </view>
+  <view class='info-item'>
+    <view>姓名</view>
+    <input value='{{userName}}' placeholder='请输入姓名'></input>
+  </view>
+  <view class='info-item'>
+    <view>昵称</view>
+    <input value='{{nickName}}' placeholder='请输入昵称'></input>
+  </view>
+  <view class='info-item'>
+    <view>所在城市</view>
+    <view>{{address}}</view>
+  </view>
+  <view class='info-item'>
+    <view>手机号码</view>
+    <input value='{{telphone}}' placeholder='请输入手机号码'></input>
+  </view>
+  <view class='info-item'>
+    <view>QQ号</view>
+    <input value='{{qqNumber}}' placeholder='请输入QQ号'></input>
+  </view>
+  <view class='save-btn'>保存资料</view>
+</view>

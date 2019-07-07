@@ -1,0 +1,44 @@
+<!-- 投递信息 -->
+<view class='resume'>
+  <view class='item-title'>投递信息</view>
+  <view class='resume-info'>
+    <image src='../../../images/scholarship/resume.png'></image>
+    <view class='resume-desc'>
+      <view>{{ resumeDetail.resumeName }}</view>
+      <view class='resume-position'>{{ resumeDetail.size }}
+        <text>{{ resumeDetail.utime }}上传</text>
+      </view>
+    </view>
+  </view>
+  <view class='hope'>
+    <view>面前年薪{{ resumeDetail.currentAnnualSalary }}</view>
+    <image src='../../../images/scholarship/arrow.png'></image>
+    <view>期望年薪{{ resumeDetail.expectedAnnualSalary }}</view>
+  </view>
+</view>
+
+
+<!-- 意向公司 -->
+<view>
+  <view class='item-title'>意向公司</view>
+  <view wx:for="{{intentionList}}" wx:key="index" class='mb60'>
+    <view class='resume-info mb30'>
+      <image src='{{ item.companyLogo }}'></image>
+      <view class='resume-desc'>
+        <view class='resume-name'>{{ item.companyName }}</view>
+        <view class='resume-position'>{{ item.positionName }}</view>
+        <view class='resume-time'>{{ item.utime }}内推</view>
+      </view>
+    </view>
+    <view
+      class='resume-status {{ item.status == 3 ? "resume-status-active" : ((item.status == 4 || item.status == 5) ? "resume-status-normal" : "")}}'>
+      {{ item.statusText }}
+    </view>
+  </view>
+</view>
+
+<!-- 底部按钮 -->
+<view class='bottom-bar'>
+  <view bindtap='goApply'>重新申请</view>
+  <view bindtap='fetchScholarship'>面试成功可领取奖学金</view>
+</view>

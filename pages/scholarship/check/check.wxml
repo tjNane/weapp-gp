@@ -1,0 +1,47 @@
+<view class="apply-title">{{ checkText }}</view>
+
+<!-- 我的简历 -->
+<view class='resume'>
+  <view class='item-title'>我的简历</view>
+  <view class='resume-info'>
+    <image src='../../../images/scholarship/resume.png'></image>
+    <view class='resume-desc'>
+      <view>{{ resumeDetail.resumeName }}</view>
+      <view>{{ resumeDetail.size }}
+        <text>{{ resumeDetail.utime }}上传</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 目前/期望年薪 -->
+<view class='intention'>
+  <view class='item-title'>目前/期望年薪</view>
+  <view class='hope'>
+    <view>{{ resumeDetail.currentAnnualSalary }}</view>
+    <image src='../../../images/scholarship/arrow.png'></image>
+    <view>{{ resumeDetail.expectedAnnualSalary }}</view>
+  </view>
+</view>
+
+<!-- 意向公司 -->
+<view>
+  <view class='item-title'>意向公司</view>
+  <view class='resume-info mb40' wx:for="{{intentionList}}" wx:key="index">
+    <image src='{{ item.companyLogo }}'></image>
+    <view class='resume-desc'>
+      <view>{{ item.companyName }}</view>
+      <view>{{ item.positionName }}</view>
+    </view>
+  </view>
+</view>
+
+<!-- 提示框 -->
+<tips-modal
+  id="tips"
+  confirm-btn="重新申请"
+  showCancel="{{false}}"
+  bind:confirm="goApply">
+    <view class='modal-title'>审核未通过</view>
+    <view class='modal-text'>请重新检查所提交的简历信息是否合格</view>
+</tips-modal>

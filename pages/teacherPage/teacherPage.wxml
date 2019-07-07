@@ -1,0 +1,32 @@
+<!-- 老师介绍 -->
+<view class='introduce'>
+  <view class='teacher-info'>
+    <image src='https:{{teacherImg}}'></image>
+    <text>{{teacherName}}</text>
+  </view>
+  <view class='desc'>{{content}}</view>
+</view>
+
+<!-- 
+<view class='courses-title'>主讲课程(29)</view>
+<view class='courses-list'>
+  <navigator url='../teacherPage/teacherPage' class='courses-item' hover-class='none' wx:for="{{hotCourse}}" wx:key="index">
+    <view class='courses-img'>
+      <image src='{{item.coverImg}}'></image>
+      <view class='courses-data'>
+        <view>
+          <image src='../../images/watched.png'></image>
+          <text>{{item.watched}}</text>
+        </view>
+        <view>
+          <image src='../../images/watched.png'></image>
+          <text>{{item.comment}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='courses-desc'>
+      <view class='desc-title'>{{item.title}}</view>
+      <view class='desc-price'>￥{{item.price}}</view>
+    </view>
+  </navigator>
+</view> -->

@@ -1,0 +1,35 @@
+<!-- tabbar选项卡 -->
+<view class='tabbar'>
+  <view class='tab-item {{currentTab == index ? "on" : ""}}' wx:for="{{tabs}}" wx:key="index" bindtap='switchTab' data-idx='{{index}}'>{{item.text}}</view>
+</view>
+
+<!-- 说明 -->
+<view class='tips'>
+  <image src='../../images/notice.png'></image>
+  <text>使用说明：购买课程时联系客服即可抵扣部分费用</text>
+</view>
+
+<!-- 优惠券列表 -->
+<view class='discount-list'>
+  <block>
+    <view class='list-item' wx:if="{{currentTab == 0 && tobeusedList.length}}" wx:for="{{tobeusedList}}" wx:key="index">
+      <image src='{{imgUrl + item.imageUrl}}' class='bg'></image>
+    </view>
+    <default-page image-src="../../images/default/default7.png" tip-text="暂无未使用优惠券" wx:if="{{!tobeusedList.length && currentTab == 0}}">
+    </default-page>
+  </block>
+  <block>
+    <view class='list-item' wx:if="{{currentTab == 1 && usedList.length}}" wx:for="{{usedList}}" wx:key="index">
+      <image src='{{imgUrl + item.imageUsedUrl}}' class='bg'></image>
+    </view>
+    <default-page image-src="../../images/default/default7.png" tip-text="暂无已使用优惠券" wx:if="{{!usedList.length && currentTab == 1}}">>
+    </default-page>
+  </block>
+  <block>
+    <view class='list-item' wx:if="{{currentTab == 2 && expiredList.length}}" wx:for="{{expiredList}}" wx:key="index">
+      <image src='{{imgUrl + item.imageExpiredUrl}}' class='bg'></image>
+    </view>
+    <default-page image-src="../../images/default/default7.png" tip-text="暂无已过期优惠券" wx:if="{{!expiredList.length && currentTab == 2}}">>
+    </default-page>
+  </block>
+</view>

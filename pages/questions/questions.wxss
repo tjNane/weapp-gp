@@ -1,0 +1,34 @@
+.wrap{
+  padding: 0 32rpx;
+}
+.question-item{
+  border-bottom: 1rpx solid #ECECEC;
+}
+.question-title{
+  height: 110rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 32rpx;
+}
+.question-title image{
+  width: 14rpx;
+  height: 24rpx;
+}
+.question-title view{
+  width: 640rpx;
+}
+.question-content{
+  font-size: 30rpx;
+  line-height: 1.7;
+  padding: 0 0 20rpx;
+  display: none;
+  color: #999;
+}
+.show{
+  display: block;
+}
+.rotate-img{
+  transform: rotate(90deg);
+  transition: .2s;
+}

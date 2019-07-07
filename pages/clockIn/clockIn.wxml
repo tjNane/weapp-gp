@@ -1,0 +1,33 @@
+<!-- 顶部信息 -->
+<view class='clock-title'>
+  <view class='current-date'>{{currentYear}}年{{currentMonth}}月</view>
+  <view class='achievement'>打卡{{currentMonthPunch}}次</view>
+  <view class='turn-page front-month' bindtap='prevPage'>
+    <image src='../../images/turn-page.png'></image>
+    <text wx:if="{{currentMonth != 1}}">{{currentMonth - 1}}月</text>
+    <text wx:else>12月</text>
+  </view>
+  <view class='turn-page next-month' bindtap='nextPage' wx:if="{{showPreviousBtn}}">
+    <text wx:if="{{currentMonth != 12}}">{{currentMonth + 1}}月</text>
+    <text wx:else>1月</text>
+    <image src='../../images/turn-page.png'></image>
+  </view>
+</view>
+
+<!-- 日历 -->
+<view class='calendar'>
+  <view class='calc-header'>
+    <view wx:for="{{weekNumber}}" wx:key="index">{{item}}</view>
+  </view>
+  <view class='date-number'>
+    <view class='date-item' wx:for="{{frontDay}}" wx:key="index">
+      <view class='grey'>{{item.date}}</view>
+    </view>
+    <view class='date-item' wx:for="{{dateArr}}" wx:key="index">
+      <view class='{{item.isPunched ? "punched" : ""}}'>{{item.date}}</view>
+    </view>
+    <view class='date-item' wx:for="{{backDay}}" wx:key="index">
+      <view class='grey'>{{item.date}}</view>
+    </view>
+  </view>
+</view>

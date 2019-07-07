@@ -1,0 +1,66 @@
+.wrap{
+  padding: 0 30rpx 0;
+}
+.sum-people{
+  height: 98rpx;
+  border-bottom: 1rpx solid #ECECEC;
+  line-height: 98rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.share-item{
+  padding: 24rpx 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1rpx solid #ECECEC;
+}
+.share-item .user-name{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30rpx;
+}
+.share-item .name-left{
+  display: flex;
+  align-items: center;
+}
+.share-item .name-left image{
+  width: 56rpx;
+  height: 56rpx;
+  margin-right: 22rpx;
+  border-radius: 50%;
+}
+.share-item .share-time{
+  font-size: 24rpx;
+  color: #999;
+}
+.share-item .course-name{
+  font-size: 28rpx;
+  margin: 20rpx 0;
+}
+.share-item .course-name text{
+  padding-left: 20rpx;
+  color: #ccc;
+}
+.share-item .award{
+  height: 40rpx;
+  font-size: 26rpx;
+  display: flex;
+  align-items: center;
+}
+.share-item .award view{
+  background: #FEE9E5;
+  display: flex;
+  align-items: center;
+  padding: 0 15rpx;
+  border-radius: 4px;
+}
+.share-item .award text{
+  color: #FD553A;
+}
+.share-item .award image{
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 4rpx;
+}

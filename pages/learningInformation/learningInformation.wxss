@@ -1,0 +1,263 @@
+.result-student {
+  padding: 0 40rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.result-student .student-image {
+  width: 108rpx;
+  height: 78rpx;
+  overflow: hidden;
+  position: relative;
+}
+
+.result-student .student-image image {
+  width: 100%;
+  height: 100%;
+}
+
+.result-student .result-data-name text {
+  font-size: 48rpx;
+}
+
+.result-student .result-data-description {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.result-info {
+  padding: 0 40rpx;
+  box-sizing: border-box;
+  margin-top: 78rpx;
+}
+
+.result-info .student-heika {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.result-info .student-heika .student-image {
+  width: 34rpx;
+  height: 30rpx;
+  overflow: hidden;
+  position: relative;
+}
+
+.result-info .student-heika text {
+  font-size: 36rpx;
+  margin-left: 10rpx;
+  font-weight: bold;
+}
+
+.result-info .student-heika .student-image image {
+  width: 100%;
+  height: 100%;
+}
+
+.result-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 23rpx 0 32rpx;
+  padding: 50rpx 50rpx 0 45rpx;
+}
+
+.result-item .result-img {
+  width: 670rpx;
+  height: 307rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.result-item .black-card-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.result-item .result-logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.result-item .result-data-name {
+  font-size: 40rpx;
+  color: #f7d99e;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.result-item .result-data-studentNo {
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #f7d99e;
+}
+
+.result-item .result-data-studentNo image {
+  margin-right: 8rpx;
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.result-item .result-logo-image {
+  width: 82rpx;
+  height: 82rpx;
+}
+
+.result-item .result-data {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 38rpx;
+  left: 0;
+  width: 100%;
+  padding: 0 50rpx 0 45rpx;
+  box-sizing: border-box;
+}
+
+.result-item .result-data view:first-child {
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  color: white;
+}
+
+.result-item .result-data image {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 10rpx;
+  border-radius: 25rpx;
+}
+
+.result-item .result-data view:nth-child(2) {
+  color: #969698;
+  font-size: 24rpx;
+}
+
+.personal-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 112rpx;
+  margin-bottom: 48rpx;
+}
+
+.personal-title image {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 10rpx;
+}
+
+.personal-title text {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.result-benefits {
+  display: flex;
+  justify-content: space-between;
+}
+
+.result-benefits view {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+.result-benefits view image {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.personal-information {
+  display: flex;
+  flex-direction: column;
+}
+
+.personal-information view {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 32rpx;
+  margin-bottom: 80rpx;
+}
+
+.personal-account-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 20rpx;
+  margin-bottom: 48rpx;
+}
+
+.personal-account-title image {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 10rpx;
+}
+
+.personal-account-title text {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.personal-account {
+  display: flex;
+  flex-direction: column;
+}
+
+.personal-account view {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 32rpx;
+  margin-bottom: 80rpx;
+}
+
+.personal-subsidiary-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 20rpx;
+  margin-bottom: 48rpx;
+}
+
+.personal-subsidiary-title image {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 10rpx;
+}
+
+.personal-subsidiary-title text {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.personal-subsidiary {
+  display: flex;
+  flex-direction: column;
+}
+
+.personal-subsidiary view {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 32rpx;
+  margin-bottom: 80rpx;
+}
+
+.personal-subsidiary view image {
+  width: 14rpx;
+  height: 24rpx;
+}

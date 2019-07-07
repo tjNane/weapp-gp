@@ -1,0 +1,164 @@
+<import src="../../utils/wxParse/wxParse.wxml" />
+
+<!-- 顶部大图 -->
+<image src='{{courseIntrodution.picurl}}' class='top-img'></image>
+
+<!-- 选项卡 -->
+<view class='tabbar {{fixedNav ? "tab-fixed" : ""}}' id='tabbar'>
+  <view class='tab-item {{currentTab == index ? "on" : ""}}' wx:for="{{tabs}}" wx:key="index" bindtap='switchTab' data-idx='{{index}}'>{{item.text}}</view>
+</view>
+
+<view class='wrap'>
+  <!-- 课程介绍 -->
+  <view class='introduce' wx:if="{{currentTab == 0}}">
+    <view class='pd30'>
+      <view class='intro-title'>{{courseIntrodution.title}}</view>
+      <view class='info'>
+        <view class='info-item'>
+          <image src='../../images/learned.png'></image>
+          <text>{{courseIntrodution.hot}}热度</text>
+        </view>
+        <view class='info-item'>
+          <image src='../../images/good-comment.png'></image>
+          <text>好评率100%</text>
+        </view>
+      </view>
+      <view class='course-price'>￥{{courseIntrodution.currentprice}} <text wx:if="{{showOriginPrice}}">￥{{courseIntrodution.originalprice}}</text></view>
+      <!-- 老师介绍 -->
+      <block wx:if="{{partTeacherList.length}}">
+        <view class='list-title'>老师介绍({{teacherList.length}})</view>
+        <view class='teacher-item' wx:for="{{partTeacherList}}" wx:key="index">
+          <navigator url='../teacherPage/teacherPage?img={{item.teacherImage}}&name={{item.teacherName}}&content={{item.teacherResume}}' class='teacher-title' hover-class='none'>
+            <view class='teacher-title-left'>
+              <image src='https:{{item.teacherImage}}' class='teacher-img'></image>
+              <view>
+                <view>{{item.teacherName}}</view>
+                <!-- <view class='sum-course'>共{{item.totalCourse}}课程</view> -->
+              </view>
+            </view>
+            <image src='../../images/go.png' class='right-icon'></image>
+          </navigator>
+          <view class='teacher-desc'>{{item.teacherResume}}</view>
+        </view>
+        <view class='check-all' bindtap='checkAllTeacher' wx:if="{{!isCheakAll}}">查看全部老师</view>
+      </block>
+    </view>
+
+    <!-- 图文介绍 -->
+    <view class='picture-introduce'>
+      <view class='list-title pd30'>图文介绍</view>
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+  </view>
+
+  <!-- 课程大纲 -->
+  <view class='outline' wx:if="{{currentTab == 1}}">
+    <view class='course' wx:for="{{courseOutline}}" wx:key="index">
+      <view class='course-name' bindtap='toggleSlide' data-idx='{{index}}'>
+        <view class='course-left'>
+          <text wx:if="{{index < 9}}">{{'0' + (index + 1)}}</text>
+          <text wx:else>{{index + 1}}</text>
+          <text>{{item.name}}</text>
+        </view>
+        <image src='../../images/top-arrow.png' class='{{index == currentSlide ? "" : "rotate-img"}}'></image>
+      </view>
+      <view class='course-wrap' wx:if="{{index == currentSlide}}">
+        <view class='pd50'>
+          <navigator class='sub-course' hover-class='none' wx:for-item="sub" wx:for="{{item.childList}}" wx:key="index">
+            <view class='sub-name'>
+              <image src='{{sub.id == pageId ? "../../images/can-play.png" : "../../images/cant-play.png"}}'></image>
+              <text>{{sub.name}}</text>
+            </view>
+            <view class='course-time'>{{sub.mins}}分钟</view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 相关课程 -->
+  <view class='relative-course' wx:if="{{currentTab == 2}}">
+    <block wx:if="{{hotList.length}}">
+      <view class='relative-title'>热门课程</view>
+      <view class='result-list'>
+        <navigator url='../courseDetail/courseDetail?id={{item.id}}' class='result-item' hover-class='none' wx:for="{{hotList}}" wx:key="index">
+          <view class='result-img'>
+            <image src='{{item.picurl}}'></image>
+            <view class='result-data'>
+              <view>
+                <image src='../../images/watched.png'></image>
+                <text>{{item.hot}}</text>
+              </view>
+            </view>
+          </view>
+          <view class='result-desc'>
+            <view class='desc-title'>{{item.title}}</view>
+            <view class='desc-price'>￥{{item.currentprice}}</view>
+          </view>
+        </navigator>
+      </view>
+    </block>
+
+    <block wx:if="{{discountList.length}}">
+      <view class='relative-title'>折扣课程</view>
+      <view class='result-list'>
+        <navigator url='../courseDetail/courseDetail?id={{item.id}}' class='result-item' hover-class='none' wx:for="{{discountList}}" wx:key="index">
+          <view class='result-img'>
+            <image src='{{item.picurl}}'></image>
+            <view class='result-data'>
+              <view>
+                <image src='../../images/watched.png'></image>
+                <text>{{item.hot}}</text>
+              </view>
+            </view>
+          </view>
+          <view class='result-desc'>
+            <view class='desc-title'>{{item.title}}</view>
+            <view class='desc-price'>￥{{item.currentprice}}
+              <text wx:if="{{item.originalprice}}">￥{{item.originalprice}}</text>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </block>
+
+  </view>
+</view>
+
+<!-- 底部按钮栏 -->
+<view class='bottom-bar'>
+  <view class='btns'>
+    <view class='btns-item'>
+      <image src='../../images/contact.png'></image>
+      <view>客服</view>
+      <button open-type='contact'>客服</button>
+    </view>
+    <view class='btns-item' bindtap='toggleCollect'>
+      <image src='../../images/collection.png' wx:if="{{!collected}}"></image>
+      <image src='../../images/evaluate.png' wx:else></image>
+      <view>{{!collected ? "收藏" : "已收藏"}}</view>
+    </view>
+    <view class='btns-item' bindtap='showPopUp'>
+      <image src='../../images/share.png'></image>
+      <view>分享</view>
+    </view>
+  </view>
+  <view class='check-in' bindtap='goTencent'>前往腾讯课堂报名</view>
+</view>
+
+<!-- 弹窗 -->
+<pop-up id="pop">
+  <canvas canvas-id='canvas' class='canvas' disable-scroll="{{true}}" bindtouchmove="touchStart"></canvas>
+  <view class='share-success'>分享成功可获取1枚demo币</view>
+  <view class='pop-btns'>
+    <view>
+      <image src='../../images/shared.png' class='share-img'></image>
+      <text>分享小程序</text>
+      <button open-type='share'>分享</button>
+    </view>
+    <view bindtap='savePoster'>
+      <image src='../../images/save-poster.png'></image>
+      <text>保存海报</text>
+    </view>
+  </view>
+</pop-up>

@@ -1,0 +1,294 @@
+.apply-subject-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top:36rpx;
+}
+input{
+  text-align: right;
+}
+.apply-subject-title text:first-child{
+  font-size: 48rpx;
+  font-weight: bold;
+}
+.apply-subject-title text:last-child{
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #FD553A;
+}
+.apply-subject{
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+.subject-item{
+  display: flex;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-top:78rpx;
+}
+.subject-item .subject-list {
+  width: 204rpx;
+  height: 212rpx;
+  border-radius:8rpx;
+  margin-right: 17rpx;
+  margin-bottom: 30rpx;
+  border:1px solid #ECECEC;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.subject-item .subject-list-active{
+  border:2px solid #FD553A;
+  position: relative;
+}
+.subject-list .selected{
+  width: 32rpx;
+  height: 32rpx;
+  border-top-right-radius: 8rpx;
+  background: #FD553A;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.subject-list .selected image{
+  width: 26rpx;
+  height: 26rpx;
+}
+.subject-item .subject-list:nth-child(3n){
+  margin-right: 0;
+}
+.subject-list .student-subject{
+  display: flex;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  flex-direction:column;
+}
+.subject-list .student-subject .sub-img{
+  width: 80rpx;
+  height: 80rpx;
+  padding: 50rpx 10rpx 10rpx 92rpx;
+}
+.subject-list .student-subject view{
+  font-size: 32rpx;
+  font-weight: bold;
+  padding-top: 10rpx;
+  padding-left:20rpx; 
+}
+
+.basic-information{
+  font-size: 32rpx;
+}
+.basic-information view{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50rpx;
+  box-sizing: border-box;
+}
+
+.basic-information .apply-education view{
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+.basic-information .apply-education image{
+  width: 14rpx;
+  height: 24rpx;
+  margin-left: 8rpx;
+}
+.basic-information .apply-areaCode view{
+  display: flex;
+  align-items: center;
+  margin-bottom: 0rpx;
+}
+.basic-information .apply-areaCode view picker view{
+  margin-bottom:0rpx; 
+}
+
+.basic-information .apply-city view{
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+.basic-information .apply-city image{
+  width: 14rpx;
+  height: 24rpx;
+  margin-left: 8rpx;
+}
+.basic-information .apply-gender view{
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  width: 220rpx;
+}
+.basic-information .apply-gender image{
+  width: 56rpx;
+  height: 56rpx;
+  margin-left: 5rpx;
+}
+
+.basic-information .gain-verification{
+  display: flex;
+  align-items: center;
+}
+.basic-information .gain-verification button{
+  font-size: 28rpx;
+  color: #FA5439;
+  width:188rpx;
+  margin-right:0;
+  padding: 0;
+  background: white;
+}
+.work-status{
+  font-size: 32rpx;
+}
+.work-status view{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50rpx;
+}
+.work-status .apply-work view{
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+.work-status .apply-work image{
+  width: 14rpx;
+  height: 24rpx;
+  margin-left: 8rpx;
+}
+.work-status .apply-job-title view{
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+.work-status .apply-job-title image{
+  width: 14rpx;
+  height: 24rpx;
+  margin-left: 8rpx;
+}
+.work-status .apply-annualSalary view{
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+.work-status .apply-annualSalary image{
+  width: 14rpx;
+  height: 24rpx;
+  margin-left: 8rpx;
+}
+.college-contact{
+  font-size: 32rpx;
+}
+.college-contact view{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50rpx;
+}
+.college-contact .college-contact-problem{
+  display: flex;
+  flex-direction:column;
+  position: relative;
+  height: 340rpx;
+}
+.cover{
+  width: 100%;
+  height: 300rpx;
+}
+.college-contact .apply-understandGupao view{
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+.college-contact .apply-understandGupao image{
+  width: 14rpx;
+  height: 24rpx;
+  margin-left: 8rpx;
+}
+.college-contact .apply-lectures view{
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+.college-contact .apply-lectures image{
+  width: 14rpx;
+  height: 24rpx;
+  margin-left: 8rpx;
+}
+.apply-confirm-subject{
+  position: relative;
+}
+.apply-confirm-subject image{
+  position: absolute;
+  right: 0;
+  width: 112rpx;
+  height: 112rpx;
+}
+.apply-confirm{
+  position: relative;
+}
+.apply-confirm image:first-child{
+  position: absolute;
+  left: 0;
+  width: 112rpx;
+  height: 112rpx;
+  transform:rotate(180deg);
+}
+.apply-confirm image:last-child{
+  position: absolute;
+  right: 0;
+  width: 112rpx;
+  height: 112rpx;
+}
+.check-group{
+  width:750rpx;
+  padding:20rpx 0 0 75rpx;
+  box-sizing:border-box;
+}
+.check-group label{
+  margin-right: 20rpx;
+}
+.check-btn{
+  width: 600rpx;
+  height: 70rpx;
+  border-radius: 8rpx;
+  background: #FD553A;
+  color: white;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  margin-top: 40rpx;
+}
+.checkbox-wrap{
+  padding-top: 40rpx;
+}
+.checkbox-wrap .checkbox-item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+.checkbox-wrap .checkbox-img{
+  width: 40rpx;
+  height: 40rpx;
+  border: 1rpx solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.checkbox-wrap .checkbox-img image{
+  width: 34rpx;
+  height: 34rpx;
+}
+.textarea{
+  width:660rpx;
+  height: 300rpx;
+  z-index:0;
+}
+.grey-text{
+  color: #ccc;
+}

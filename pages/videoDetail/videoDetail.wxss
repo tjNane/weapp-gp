@@ -1,0 +1,164 @@
+page{
+  padding-bottom: 100rpx;
+  padding-top: 474rpx;
+}
+.video, .video-wrap{
+  width: 100%;
+  height: 376rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+/* .video-wrap{
+  position: relative;
+} */
+.cover{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background:linear-gradient(-35deg,rgba(28,30,31,1),rgba(45,48,49,1));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cover image{
+  width: 92rpx;
+  height: 92rpx;
+}
+.cover view{
+  font-size: 24rpx;
+  color: white;
+  margin-top: 20rpx;
+}
+
+
+/* tabbar */
+.tabbar{
+  height: 88rpx;
+  width: 100%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 32rpx;
+  margin-bottom: 30rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  position: fixed;
+  top: 376rpx;
+  left: 0;
+  z-index: 999;
+}
+.tabbar .tab-item{
+  font-size: 32rpx;
+  position: relative;
+  height: 100%;
+  line-height: 88rpx;
+  font-weight: bold;
+}
+.tabbar .on{
+  color: #FD553A;
+}
+.tabbar .on::after{
+  content: '';
+  width: 128rpx;
+  height: 6rpx;
+  background: #FD553A;
+  border-radius: 3rpx;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+/* 视频简介 */
+.pd30{
+  padding: 0 30rpx;
+}
+.intro-title{
+  font-size: 40rpx;
+  margin-top: 30rpx;
+  font-weight: bold;
+}
+.introduce .info{
+  display: flex;
+  margin-top: 16rpx;
+  padding-bottom: 40rpx;
+  border-bottom: 1rpx solid #ECECEC;
+}
+.introduce .info-item{
+  display: flex;  
+  align-items: center;
+  font-size: 26rpx;
+  color: #666;
+  margin-right: 47rpx;
+}
+.introduce .info-item image{
+  width: 18rpx;
+  height: 18rpx;
+  margin-right: 8rpx;
+}
+
+.list-title{
+  font-size: 36rpx;
+  line-height: 36rpx;
+  margin: 60rpx 0 38rpx;
+}
+.introduce .teacher-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30rpx;
+}
+.introduce .teacher-title-left{
+  display: flex;
+  align-items: center;
+}
+.introduce .teacher-img{
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  margin-right: 18rpx;
+}
+.introduce .sum-course{
+  color: #C7C7C9;
+  font-size: 24rpx;
+}
+.introduce .teacher-desc{
+  color: #666;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+.introduce .teacher-item{
+  margin-bottom: 60rpx;
+}
+
+.share-btn{
+  width: 686rpx;
+  height: 80rpx;
+  color: white;
+  background: #FD553A;
+  border-radius: 6rpx;
+  position: fixed;
+  bottom: 10rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+}
+.share-btn::after{
+  content: '';
+  border: 0;
+}
+.share-btn image{
+  width: 34rpx;
+  height: 31rpx;
+  margin-right: 16rpx;
+}

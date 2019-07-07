@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "pop-up": "/components/PopUp/pop-up"
+  },
+  "navigationBarTitleText": "领取奖学金1/2"
+}

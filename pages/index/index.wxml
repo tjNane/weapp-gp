@@ -1,0 +1,213 @@
+<!-- 搜索 -->
+<view class='search-wrap'>
+  <view class='search-bar' bindtap='navToSearch'>
+    <image src='../../images/search.png'></image>
+    <text>{{inputPlaceholder}}</text>
+  </view>
+</view>
+
+<!-- tabbar选项卡 -->
+<view class='tabbar'>
+  <view class='tab-item {{currentTab == index ? "on" : ""}}' wx:for="{{tabs}}" wx:key="index" bindtap='switchTab' data-idx='{{index}}'>{{item.text}}</view>
+</view>
+
+<!-- 为你推荐 -->
+<view wx:if="{{currentTab == 0}}">
+
+  <!-- 轮播图 -->
+  <view class='swiper-container'>
+    <swiper
+      indicator-dots
+      circular
+      autoplay
+      interval="6000"
+      duration="300"
+      indicator-color="#E5E5E5"
+      indicator-active-color="#FD553A"
+      previous-margin="30rpx"
+      next-margin="30rpx"
+      class='swiper'
+      bindchange='swiperChange'>
+      <block wx:for="{{swiperList}}" wx:key="index">
+        <swiper-item class="swiper-item">
+          <image
+          src="{{item.picurl}}"
+          mode="aspectFill"
+          class="swiper-image {{swiperIndex == index ? 'active' : 'quiet'}}"
+          data-url='{{item.bannerurl}}' bindtap='goTencent'/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <!-- 今日公开课 -->
+  <view class='course-list' wx:if="{{todayPublicCourseList.length}}">
+    <view class='list-item'>
+      <view class='item-title' bindtap='navToTodayCourse'>
+        <view>
+          <view class='title-text'>
+            <image src='../../images/list-icon1.png'></image>
+            <text>今日公开课</text>
+          </view>
+          <view class='sub-title'>提前了解技术大牛研发课程</view>
+        </view>
+        <image src='../../images/right-arrow.png' class='right-arrow'></image>
+      </view>
+      <view class='item-detail'>
+        <view class='course-item' wx:for="{{todayPublicCourseList}}" wx:key="index">
+          <view data-url='{{item.wx_url}}' bindtap='navToCourse'>
+            <view class='course-img'>
+              <image src='{{item.image_url}}'></image>
+              <view class='course-status'>
+                <view class='on-air'>
+                  <text wx:if="{{timestamp > item.start_time && timestamp < item.end_time}}">直播中</text>
+                  <text wx:elif="{{timestamp > item.start_time}}">已播完</text>
+                  <text wx:else>{{item.startTime}}开播</text>
+                  <image src='../../images/on-air.png' wx:if="{{timestamp > item.start_time && timestamp < item.end_time}}"></image>
+                </view>
+              </view>
+            </view>
+            <view class='course-name'>{{item.course_name}}</view>
+            <view class='course-description'>{{item.teacher_name}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 爆款推荐 -->
+  <view class='course-list' wx:if="{{hotList.length}}">
+    <view class='list-item'>
+      <navigator url='../hotCourse/hotCourse?type=1' class='item-title' hover-class='none'>
+        <view>
+          <view class='title-text'>
+            <image src='../../images/list-icon2.png'></image>
+            <text>爆款推荐</text>
+          </view>
+          <view class='sub-title'>最热门的爆款课程</view>
+        </view>
+        <image src='../../images/right-arrow.png' class='right-arrow'></image>
+      </navigator>
+      <view class='item-detail'>
+        <view class='course-item' wx:for="{{hotList}}" wx:key="index">
+          <navigator url='../courseDetail/courseDetail?id={{item.id}}' hover-class='none'>
+            <view class='course-img'>
+              <image src='{{item.picurl}}'></image>
+              <view class='course-status'>
+                <view class='watched'>
+                  <image src='../../images/watched.png'></image>
+                  <text>{{item.hot}}</text>
+                </view>
+              </view>
+            </view>
+            <view class='course-name'>{{item.title}}</view>
+            <view class='course-price'>￥{{item.currentprice}}</view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 折扣专区 -->
+  <view class='course-list' wx:if="{{discountList.length}}">
+    <view class='list-item'>
+      <navigator url='../hotCourse/hotCourse?type=2' class='item-title' hover-class='none'>
+        <view>
+          <view class='title-text'>
+            <image src='../../images/list-icon3.png'></image>
+            <text>折扣专区</text>
+          </view>
+          <view class='sub-title'>最新课程底折放送</view>
+        </view>
+        <image src='../../images/right-arrow.png' class='right-arrow'></image>
+      </navigator>
+      <view class='item-detail'>
+        <view class='course-item' wx:for="{{discountList}}" wx:key="index">
+          <navigator url='../courseDetail/courseDetail?id={{item.id}}&type=1' hover-class='none'>
+            <view class='course-img'>
+              <image src='{{item.picurl}}'></image>
+              <view class='course-status'>
+                <view class='watched'>
+                  <image src='../../images/watched.png'></image>
+                  <text>{{item.hot}}</text>
+                </view>
+              </view>
+            </view>
+            <view class='course-name'>{{item.title}}</view>
+            <view class='course-price'>￥{{item.currentprice}} <text>￥{{item.originalprice}}</text></view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 猜你喜欢 -->
+  <view class='course-list' wx:if="{{guessLikeList.length}}">
+    <view class='list-item'>
+      <navigator url='../hotCourse/hotCourse?type=3' class='item-title' hover-class='none'>
+        <view>
+          <view class='title-text'>
+            <image src='../../images/list-icon4.png'></image>
+            <text>猜你喜欢</text>
+          </view>
+          <view class='sub-title'>量身制定总有你喜欢</view>
+        </view>
+        <image src='../../images/right-arrow.png' class='right-arrow'></image>
+      </navigator>
+      <view class='item-detail'>
+        <view class='course-item' wx:for="{{guessLikeList}}" wx:key="index">
+          <navigator url='../courseDetail/courseDetail?id={{item.id}}' hover-class='none'>
+            <view class='course-img'>
+              <image src='{{item.picurl}}'></image>
+              <view class='course-status'>
+                <view class='watched'>
+                  <image src='../../images/watched.png'></image>
+                  <text>{{item.hot}}</text>
+                </view>
+              </view>
+            </view>
+            <view class='course-name'>{{item.title}}</view>
+            <view class='course-price'>￥{{item.currentprice}}</view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<!-- 往期录播 -->
+<view wx:if="{{currentTab == 1}}">
+  <scroll-view class='choose-classify' scroll-x>
+    <view class='classify-item {{currentClassify == 0 ? "classify-on": ""}}' data-id='0' bindtap='chooseClassify' wx:if="{{previousTab.length}}">
+      <view class='content'>
+        <view class='num'>{{previousLength}}</view>
+        <view class='name'>全部</view>
+      </view>
+    </view>
+    <view class='classify-item {{item.crmCourseid == currentClassify ? "classify-on": ""}}' data-id='{{item.crmCourseid}}' bindtap='chooseClassify' wx:for="{{previousTab}}" wx:key="index">
+      <view class='content'>
+        <view class='num'>{{item.courseList.length}}</view>
+        <view class='name'>{{item.crmCourseName}}</view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class='result-list'>
+    <navigator url='../videoDetail/videoDetail?id={{item.id}}' class='result-item' hover-class='none' wx:for="{{currentFilter}}" wx:key="index">
+      <view class='result-img'>
+        <image src='{{item.picurl}}'></image>
+        <view class='result-data'>
+          <view>
+            <image src='../../images/watched.png'></image>
+            <text>{{item.hot}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='result-desc'>
+        <view class='desc-title'>{{item.title}}</view>
+        <view class='desc-text'>{{item.techerList[0].teacherName}}</view>
+      </view>
+    </navigator>
+  </view>
+</view>

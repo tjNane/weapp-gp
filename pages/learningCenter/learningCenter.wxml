@@ -1,0 +1,108 @@
+<!-- tabbar选项卡 -->
+<view class='tabbar'>
+  <view class='tab-item {{currentTab == index ? "on" : ""}}' wx:for="{{tabs}}" wx:key="index" bindtap='switchTab' data-idx='{{index}}'>{{item.text}}</view>
+</view>
+
+<!-- 最近学习 -->
+<view wx:if="{{currentTab == 0}}">
+  <view class='relative-title' wx:if="{{applyCourse.length}}">报名课程</view>
+  <view class='courses-list'>
+    <view
+      data-id='{{item.courseInfo.vipCourceId}}'
+      data-arrangement='{{timestamp > (item.arrangement.startTimestamp - frontTime) && timestamp < item.arrangement.endTimestamp}}'
+      data-punchcard="{{item.punchcard.arrangementId}}"
+      data-title="{{item.courseInfo.vipCourseName}}"
+      data-url="{{item.courseImage.remark}}"
+      class='courses-item'
+      wx:for="{{applyCourse}}"
+      wx:key="index"
+      bindtap='navToCourseDetail'>
+        <view class='courses-img'>
+          <image src='{{item.courseImage.imageUrl}}'></image>
+          <view class='clock-status {{item.punchcard.arrangementId ? "" : "clock-grey"}}'>{{item.punchcard.arrangementId ? "已打卡" : "未打卡"}}</view>
+          <view class='courses-data' wx:if="{{item.arrangement}}">
+            <view>
+              <block wx:if="{{timestamp > item.arrangement.startTimestamp && timestamp < item.arrangement.endTimestamp}}">
+                <text class='courses-text'>直播中</text>
+                <image src='../../images/on-air.png'></image>
+              </block>
+              <block wx:elif="{{timestamp < item.arrangement.startTimestamp}}">
+                <text class='courses-text'>{{item.arrangement.startShortTime}} - {{item.arrangement.endShortTime}}直播</text>
+              </block>
+              <block wx:else>
+                <text class='courses-text'>今日直播已结束</text>
+              </block>
+            </view>
+          </view>
+        </view>
+        <view class='courses-desc'>
+          <view class='desc-title'>{{item.courseInfo.vipCourseName}}</view>
+          <view class='desc-text'>
+            <image src="../../images/progress.png"></image>
+            <view>已学习{{item.progress}}</view>
+          </view>
+        </view>
+    </view>
+  </view>
+
+  <!-- 无最近学习 -->
+  <default-page image-src="../../images/default/default6.png" tip-text="没有你最近的学习记录" wx:if="{{!applyCourse.length}}">
+  </default-page>
+
+</view>
+
+
+<!-- 我的学籍 -->
+<view wx:if="{{currentTab == 1}}">
+
+  <view class='result-list'>
+    <navigator class='result-item' url='../learningInformation/learningInformation?vipCourceId={{item.courseInfo.vipCourceId}}&subjectImg={{item.courseImage.imageUrlThird}}' hover-class='none' wx:for="{{applyCourse}}" wx:key="index">
+      <view class='result-img'>
+        <image src='{{item.courseImage.imageUrl}}'></image>
+        <view class='result-data-name'>
+          <view>
+            <text>{{item.courseInfo.vipCourseName}}</text>
+          </view>
+        </view>
+        <view class='result-data-studentNo'>
+          <view>
+            <text>学号-{{item.courseInfo.vipStuno}}</text>
+          </view>
+        </view>
+        <view class='result-data-studentName'>
+          <view>
+            <text class='result-studentName'>{{item.courseInfo.vipName}}</text>
+          </view>
+        </view>
+        <view class='result-data'>
+          <view>
+            <text>{{item.courseInfo.vipTimeShort}}入学</text>
+          </view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view class='apply-student' wx:if="{{applyCourse.length && queryVipAuditInfo==null && followWeChat}}">
+    <navigator url='../applyStudent/applyStudent'>
+      <view>
+        <text>申请其它学籍 ></text>
+      </view>
+    </navigator>
+  </view>
+
+  <!-- 无结果页 -->
+  <default-page image-src="../../images/default/default5.png" show-btn btn-text="去申请" bind:navigator="applyNavigator" tip-text="你还没有申请相关学籍" wx:if="{{followWeChat && !applyCourse.length && queryVipAuditInfo==null}}">
+  </default-page>
+  <!-- 老学员绑定 -->
+  <view class='oldstu-btn' wx:if="{{followWeChat && !applyCourse.length && queryVipAuditInfo==null}}">
+    <view bindtap='bindOldStudent'>老学员绑定</view>
+  </view>
+
+   <!-- 无结果页 有待审核通过数据-->
+  <default-page image-src="../../images/default/default5.png" tip-text="你的学籍申请还未审核通过，请等待！" wx:if="{{followWeChat && !applyCourse.length && queryVipAuditInfo!=null}}">
+  </default-page>
+
+  <!-- 无结果页 -->
+  <default-page image-src="../../images/default/default5.png" tip-text="请先关注demo公众号" wx:if="{{!followWeChat}}">
+  </default-page>
+</view>

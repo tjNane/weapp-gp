@@ -1,0 +1,27 @@
+<view class="course-title">{{courseTitle}}</view>
+
+<!-- 轮播图 -->
+<swiper 
+  class='swiper'
+  indicator-color="#ccc"
+  indicator-active-color="#444"
+  indicator-dots
+  duration="200"
+  previous-margin="80rpx"
+  next-margin="80rpx"
+  bindchange="bindchange">
+  <block wx:for="{{publicCourseList}}" wx:key="{{index}}">
+    <swiper-item class="swiper-item">
+      <view class='navigator' data-url='{{item.wx_url}}' hover-class='none' bindtap='navToCourse'>
+        <image src="{{item.promotion_img}}" class="slide-image {{swiperIndex == index ? 'active' : 'quiet'}}">
+        </image>
+        <view class='status' wx:if="{{swiperIndex == index}}">
+          <text wx:if="{{timestamp > item.start_time && timestamp < item.end_time}}">直播中</text>
+          <text wx:elif="{{timestamp > item.start_time}}">已播完</text>
+          <text wx:else>{{item.startTime}}开播</text>
+          <image src='../../images/on-air.png' wx:if="{{timestamp > item.start_time && timestamp < item.end_time}}"></image>
+        </view>
+      </view>
+    </swiper-item>
+  </block>
+</swiper>

@@ -1,0 +1,19 @@
+<view class='shadow' wx:if="{{showStatus}}">
+  <view class='modal'>
+    <view class='content'>
+      <slot></slot>
+    </view>
+    <view class='modal-btn'>
+      <view
+        hover-class='tap'
+        bindtap='cancelTap'
+        wx:if="{{showCancel}}">{{cancelBtn}}
+      </view>
+      <view
+        hover-class='tap'
+        bindtap='confirmTap'
+        class='{{showCancel == false ? "one-btn" : ""}}'>{{confirmBtn}}
+      </view>
+    </view>
+  </view>
+</view>

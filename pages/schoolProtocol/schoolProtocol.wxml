@@ -1,0 +1,56 @@
+<view id="view_java" class="weui-popup__container">
+  <view class="weui-popup__overlay"></view>
+  <view class="weui-popup__modal">
+    <view style='padding:35px 0;font-weight:bold;text-align:center;font-size:50rpx;'>
+      学员协议
+    </view>
+    <view style="padding-bottom: 60px;" class="weui-article">
+      <view>
+        <view>
+          <view style='text-indent:50rpx;margin-bottom:30rpx;'>本协议双方为湖南demo网络科技有限公司（以下简称：demo）和本学员。本协议内容包括协议正文及所有demo学员已经发布的或将来有可能发布的各类规则，所有规则为协议不可分割的一部分，与协议正文具有同等法律效力。如有任何疑问，请咨询demo官方客服。</view>
+        </view>
+        <view>
+          <view style='text-indent:50rpx;font-weight:bold;'>一、技术服务方向</view>
+          <view style='text-indent:50rpx;margin-bottom:30rpx;'>{{current.text}}</view>
+        </view>
+        <view>
+          <view style='text-indent:50rpx;font-weight:bold;'>二、技术服务课程内容</view>
+          <view style='margin-bottom:30rpx;'>
+            <view style="font-weight:bold;text-indent:50rpx;">课程内容：</view>
+            <view style='padding-left:100rpx;'>
+              <view style="text-indent:50rpx;" wx:for="{{current.course}}" wx:key="index">〈{{index+1}}〉{{item}}</view>
+            </view>
+          </view>
+        </view>
+        <view>
+          <view style='text-indent:50rpx;font-weight:bold;'>三、服务时间</view>
+          <view style="text-indent:50rpx;margin-bottom:30rpx;">技术服务期间为本协议签订后九个月，主要服务方式为线上技术培训、线上技术指导、线上技术咨询。如平台原因导致demo开课迟延的，则学员的培训期间相应顺延。</view>
+        </view>
+        <view>
+          <view style='text-indent:50rpx;font-weight:bold;'>四、双方的权利</view>
+          <view style="text-indent:50rpx;">1、培训过程中，若一方未履行本协议的，另一方则有权终止该协议。本协议未尽事宜，双方另行协商，协商不成的，任何一方均可向长沙市岳麓区人民法院提起民事诉讼。</view>
+          <view style="text-indent:50rpx;">2、培训过程中，教学服务过程中如果出现老师不屑，辱骂或者过度营销经举报证实，学员可以要求全额退款，老师并以道歉信公布官网并且电话致歉。</view>
+          <view style="text-indent:50rpx;">3、学员应当尊重demo的知识产权，未经demo同意，学员不得擅自对demo的课堂教学进行录音、录像。对于demo拥有知识产权的课堂材料或者商业秘密信息，学员除在正常学习过程中合理使用外，不得私自复制、散发、销售，不得通过互联网进行扩散传播。</view>
+          <view style="text-indent:50rpx;">4、未经demo同意，学员不得私自将本协议约定的相关内容转让给第三方。如擅自转让的，demo有权拒绝非签约学员接受该技术服务。</view>
+          <view style="font-weight: bold;text-indent:50rpx;">5、分期付款学员:分期款项已到期且未按规定时间付款的，腾讯课堂会自动关闭学员上课权限，demo也将取消学员录播观看权限、源码下载权限并移除VIview群。补缴相应分期款后，联系demo方可重新开通权限。</view>
+          <view style="color: red;text-indent:50rpx;">6、如学员需要发票的，需在订单生成后三十日内提交开票申请并提供开票信息。</view>
+          <view style="color: red;font-weight: bold;margin-bottom:30rpx;">但采用分期付款方式支付的学员，须在全部学费缴齐后十五日内提交开票申请并提供开票信息。</view>
+        </view>
+        <view>
+          <view style='text-indent:50rpx;font-weight:bold;'>五、退费政策</view>
+          <view style="text-indent:50rpx;">1、若出现以下情形，demo应在决定做出后7个工作日内通知学员，并且在15个工作日向学员退还培训费用：</view>
+          <view style="text-indent:50rpx;">a.demo无论出于何种原因无法在确定的开课期限内开课；</view>
+          <view style="text-indent:50rpx;">b.demo无论出于何种原因在开课之前终止课程；</view>
+          <view style="text-indent:50rpx;">c.demo无论出于何种原因无法完成课程；</view>
+          <view style="text-indent:50rpx;">2、若demo未能履行本协议规定的任何一项义务或者出现第六条第一项中的a至c中的任何情况时未能履行相关义务，学员有权以书面形式通知demo申请退学，学员应与demo商议后办理退学事宜。</view>
+          <view style="font-weight: bold;text-indent:50rpx;margin-bottom:30rpx;">3、学员因自身原因在协议签订后七日内申请退款的，视学员的开通权限、学习资料下载及上课次数的不同，按腾讯课堂订单实际交费金额扣除10%-30%比例的学习费用后退剩余金额。协议签订七天以上的，不予办理退款。</view>
+        </view>
+        <view>
+          <view style='text-indent:50rpx;font-weight:bold;'>六、信息保密</view>
+          <view style="text-indent:50rpx;">demo所有课程的视频、音频享有著作权。仅限学员本人学习使用、不经同意，不得传播、不允许用于商业用途，一经发现，将取消学员所报课程的资格，并予追究其法律责任。其追偿范围包括且不限于demo直接损害、demo预期收益、
+            <text style="color:red;">维权费用（包括但不限于公证费、调查取证费用、诉讼费、保全费、律师费等）等。</text>因此学员应当谨慎遵守本条款。</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,5 @@
+.collect-title{
+  font-size: 32rpx;
+  margin: 20rpx 0;
+  padding: 0 32rpx; 
+}

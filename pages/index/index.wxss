@@ -1,0 +1,333 @@
+page {
+  padding-top: 172rpx;
+}
+/* 搜索 */
+.search-wrap{
+  width: 100%;
+  height: 64rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background: white;
+}
+.search-wrap .search-bar{
+  height: 64rpx;
+  width: 710rpx;
+  border-radius: 32rpx;
+  background: #F8F8F8;
+  display: flex;
+  align-items: center;
+  padding-left: 40rpx;
+  box-sizing: border-box;
+}
+.search-wrap image{
+  width: 22rpx;
+  height: 22rpx;
+  margin-right: 15rpx;
+}
+.search-wrap text{
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* tabbar */
+.tabbar{
+  width: 100%;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 32rpx;
+  padding: 0 174rpx;
+  box-sizing: border-box;
+  background: white;
+  position: fixed;
+  top: 84rpx;
+  left: 0;
+  z-index: 999;
+  background: white;
+}
+.tabbar .tab-item{
+  font-size: 32rpx;
+  position: relative;
+  height: 100%;
+  line-height: 88rpx;
+  font-weight: bold;
+}
+.tabbar .on{
+  color: #FD553A;
+}
+.tabbar .on::after{
+  content: '';
+  width: 128rpx;
+  height: 6rpx;
+  background: #FD553A;
+  border-radius: 3rpx;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+/* 轮播图 */
+.swiper-container{
+  /* height: 296rpx;
+  display: flex;
+  justify-content: center; */
+  margin-bottom: 55rpx;
+}
+.swiper {
+  height: 296rpx;
+}
+.swiper .swiper-item {
+  /* width: 700rpx; */
+  height: 296rpx;
+}
+.swiper .swiper-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+}
+.swiper .active {
+  transform: none;
+  transition: all 0.2s ease-in 0s;
+}
+.swiper .quiet {
+  transform: scaleY(.9) scaleX(.96);
+  transition: all 0.2s ease-in 0s;
+}
+
+/* 课程列表 */
+.course-list{
+  padding: 0 32rpx;
+  box-sizing: border-box;
+  margin-bottom: 60rpx;
+}
+.course-list .item-title{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32rpx;
+}
+.course-list .item-title .right-arrow{
+  width: 18rpx;
+  height: 32rpx;
+}
+.course-list .item-title .title-text{
+  display: flex;
+  align-items: center;
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  line-height: 36rpx;
+}
+.course-list .item-title .title-text image{
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 16rpx;
+}
+.course-list .item-title .sub-title{
+  font-size: 24rpx;
+  color: #999;
+}
+.course-list .item-detail{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.course-list .course-item{
+  width: 334rpx;
+  margin-bottom: 40rpx;
+}
+.course-list .course-img{
+  width: 100%;
+  height: 186rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+  position: relative;
+}
+.course-list .course-img image{
+  width: 100%;
+  height: 100%;
+}
+.course-list .course-img .course-status{
+  width: 100%;
+  height: 56rpx;
+  background: rgba(31, 31, 31, .14);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 23rpx;
+}
+.course-list .course-status .on-air{
+  font-size: 24rpx;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+.course-list .course-status .on-air image{
+  width: 18rpx;
+  height: 18rpx;
+  margin-left: 10rpx;
+}
+.course-list .course-name{
+  font-size: 32rpx;
+  margin: 20rpx 0 8rpx;
+  /* display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.course-list .course-description{
+  color: #666;
+  font-size: 24rpx;
+}
+.course-list .course-price{
+  font-size: 32rpx;
+  color: #FD553A;
+  font-weight: bold;
+}
+.course-list .course-price text{
+  font-size: 24rpx;
+  color: #C7C7C9;
+  padding-left: 10rpx;
+  text-decoration: line-through;
+}
+.course-list .course-status .watched{
+  color: white;
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  margin-right: 24rpx;
+}
+.course-list .course-status .watched image{
+  width: 13rpx;
+  height: 20rpx;
+  margin-right: 8rpx;
+}
+
+/* 往期录播 - 选择分类 */
+.choose-classify{
+  height: 134rpx;
+  width: 100%;
+  overflow: hidden;
+  padding-left: 32rpx;
+  padding-top: 40rpx;
+  white-space: nowrap;
+  margin-bottom: 47rpx;
+  box-sizing: border-box;
+}
+.choose-classify .classify-item{
+  width: 174rpx;
+  height: 94rpx;
+  background: #F5F5F5;
+  color: #666;
+  font-size: 28rpx;
+  display: inline-block;
+  margin-right: 16rpx;
+  border-radius: 6rpx;
+}
+.choose-classify .classify-on{
+  background: rgba(254,233,229,1);
+  color: #fd553a;
+}
+.choose-classify .content{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.choose-classify .content .num {
+  font-weight: bold;
+  color: #666;
+}
+.choose-classify .content .name {
+  color: #666;
+}
+.choose-classify .classify-on .num {
+  color: #fd553a;
+}
+.choose-classify .classify-on .name {
+  color: #fd553a;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.result-list{
+  padding: 0 32rpx;
+  box-sizing: border-box;
+}
+.result-item{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40rpx;
+}
+.result-item .result-img{
+  width: 240rpx;
+  height: 134rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+  position: relative;
+}
+.result-item .result-img image{
+  width: 100%;
+  height: 100%;
+}
+.result-item .result-img .result-data{
+  width: 100%;
+  height: 48rpx;
+  display: flex;
+  align-items: center;
+  background: rgba(31, 31, 31, .14);
+  font-size: 24rpx;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.result-item .result-img .result-data text{
+  color: white;
+  padding-left: 10rpx;
+}
+.result-item .result-img .result-data view{
+  display: flex;
+  align-items: center;
+  margin-left: 15rpx;
+}
+.result-item .result-img .result-data view image{
+  width: 13rpx;
+  height:20rpx;
+}
+.result-desc{
+  width: 430rpx;
+  font-size: 32rpx;
+}
+.result-desc .desc-title{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-bottom: 10rpx;
+}
+.result-desc .desc-price{
+  font-size: 32rpx;
+  color: #FD553A;
+  font-weight: bold;
+}
+.result-desc .desc-text{
+  font-size: 24rpx;
+  color: #999;
+}

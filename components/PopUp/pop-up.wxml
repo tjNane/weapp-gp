@@ -1,0 +1,11 @@
+<view class='shadow' wx:if="{{isShow}}" catchtouchmove="{{move}}">
+  <view class='pop-up {{haveRadius ? "radius" : ""}}' animation="{{animationData}}">
+    <image
+      src='../../images/close.png'
+      wx:if="{{showCloseBtn}}"
+      class='close-btn'
+      bindtap='hidePopUp'>
+    </image>
+    <slot></slot>
+  </view>
+</view>

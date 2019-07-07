@@ -1,0 +1,130 @@
+/* 搜索框 */
+.search-wrap{
+  height: 64rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+  margin-bottom: 64rpx;
+}
+.search-wrap .search-bar{
+  height: 64rpx;
+  width: 580rpx;
+  border-radius: 32rpx;
+  background: #F8F8F8;
+  display: flex;
+  align-items: center;
+  padding-left: 40rpx;
+  box-sizing: border-box;
+}
+.search-wrap image{
+  width: 22rpx;
+  height: 22rpx;
+  margin-right: 15rpx;
+}
+.search-wrap input{
+  font-size: 24rpx;
+}
+.search-wrap .cancel-btn{
+  font-size: 32rpx;
+  color: #999;
+}
+
+/* 搜索历史 */
+.search-history{
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  margin-bottom: 70rpx;
+}
+.search-history .title{
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.search-history .title image{
+  width: 32rpx;
+  height: 32rpx;
+}
+.history-item{
+  margin-top: 32rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.history-item view{
+  color: #666;
+  background: #F5F5F5;
+  font-size: 28rpx;
+  padding: 19rpx 32rpx;
+  margin: 0 16rpx 20rpx 0;
+}
+
+/* 搜索结果 */
+.result{
+  padding: 0 30rpx;
+}
+.result .result-title{
+  font-size: 32rpx;
+  margin-bottom: 24rpx;
+}
+.result .result-item{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40rpx;
+}
+.result .result-item .result-img{
+  width: 240rpx;
+  height: 134rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+  position: relative;
+}
+.result .result-item .result-img image{
+  width: 100%;
+  height: 100%;
+}
+.result .result-item .result-img .result-data{
+  width: 100%;
+  height: 48rpx;
+  display: flex;
+  align-items: center;
+  background: rgba(31, 31, 31, .14);
+  font-size: 24rpx;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.result .result-item .result-img .result-data text{
+  color: white;
+  padding-left: 10rpx;
+}
+.result-item .result-img .result-data view{
+  display: flex;
+  align-items: center;
+  margin-left: 15rpx;
+}
+.result-item .result-img .result-data view image{
+  width: 13rpx;
+  height: 20rpx;
+}
+.result-desc{
+  width: 430rpx;
+  font-size: 32rpx;
+}
+.result-desc .desc-title{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-bottom: 10rpx;
+}
+.result-desc .desc-price{
+  font-size: 32rpx;
+  color: #FD553A;
+  font-weight: bold;
+}
+.result-desc .desc-text{
+  font-size: 24rpx;
+  color: #999;
+}

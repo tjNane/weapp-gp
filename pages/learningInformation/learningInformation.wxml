@@ -1,0 +1,117 @@
+<view class='result-student'> 
+  <view class='student-name'> 
+    <view class='result-data-name'> 
+      <text>{{subject.vipCourseName}}</text> 
+    </view> 
+    <view class='result-data-description'> 
+      了解BAT技术大牛是如何轻松进阶 
+    </view> 
+  </view> 
+  <view class='student-image'> 
+    <image src='{{subjectImg}}' class='right-arrow'></image> 
+  </view> 
+</view> 
+ 
+<view class='result-info'> 
+  <view class='student-heika'> 
+    <view class='student-image'> 
+      <image src='../../images/heika.png'></image> 
+    </view> 
+    <text>我的demo黑卡</text> 
+  </view> 
+  <view class='result-item'> 
+    <view class='result-img'> 
+      <image src='../../images/heika-back.png' class='black-card-bg'></image> 
+      <view class='result-logo'> 
+        <view> 
+          <view class='result-data-name'>demoVIP黑卡</view> 
+          <view class='result-data-studentNo'> 
+            <image src='../../images/correct.png'></image> 
+            <text>终身专属特权</text> 
+          </view> 
+        </view> 
+        <image src='' class='result-logo-image'></image> 
+      </view> 
+      <view class='result-data'> 
+        <view> 
+          <image src='{{userPhoto}}'></image> 
+          <text>{{subject.vipName}}</text> 
+        </view> 
+        <view>{{subject.vipStuno}}</view> 
+      </view> 
+    </view> 
+  </view> 
+  <view class='result-benefits'> 
+    <view> 
+      <image src='../../images/welfare1.png'></image> 
+      <text>全课程解锁</text> 
+    </view> 
+    <view> 
+      <image src='../../images/welfare2.png'></image> 
+      <text>职业规划</text> 
+    </view> 
+    <view> 
+      <image src='../../images/welfare3.png'></image> 
+      <text>资源互享</text> 
+    </view> 
+    <view> 
+      <image src='../../images/welfare4.png'></image> 
+      <text>周边福利</text> 
+    </view> 
+    <view> 
+      <image src='../../images/welfare5.png'></image> 
+      <text>GPer会员</text> 
+    </view> 
+  </view> 
+ 
+  <view class='personal-title'> 
+    <image src='../../images/personal-info.png'></image> 
+    <text>个人信息</text> 
+  </view> 
+  <view class='personal-information'> 
+    <view> 
+      <text>姓名</text> 
+      <text>{{subject.vipName}}</text> 
+    </view> 
+    <view> 
+      <text>学号</text> 
+      <text>{{subject.vipStuno}}</text> 
+    </view> 
+    <view> 
+      <text>绑定QQ</text> 
+      <text>{{subject.vipQq}}</text> 
+    </view> 
+    <view> 
+      <text>入学日期</text> 
+      <text>{{subject.vipTime}}</text> 
+    </view> 
+  </view> 
+  <view class='personal-account-title'> 
+    <image src='../../images/gupao-account.png'></image> 
+    <text>小泡账号</text> 
+  </view> 
+  <view class='personal-account'> 
+    <view> 
+      <text>登录账号</text> 
+      <text>{{subject.vipStuno}}</text> 
+    </view> 
+    <view> 
+      <text>登录密码</text> 
+      <text>{{subject.vipValidCode}}</text> 
+    </view> 
+  </view> 
+  <view class='personal-subsidiary-title'> 
+    <image src='../../images/gupao-subsidiary.png'></image> 
+    <text>demo附属</text> 
+  </view> 
+  <view class='personal-subsidiary'> 
+    <view bindtap='enterSchool'> 
+      <text>入学手册</text> 
+      <image src='../../images/right-arrow.png'></image> 
+    </view> 
+    <view bindtap='enterProtocol'> 
+      <text>学员协议</text> 
+      <image src='../../images/right-arrow.png'></image> 
+    </view> 
+  </view> 
+</view> 

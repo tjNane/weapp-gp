@@ -1,0 +1,97 @@
+/* 顶部信息 */
+.clock-title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 110rpx;
+  position: relative;
+}
+.clock-title .current-date{
+  font-size: 36rpx;
+}
+.clock-title .achievement{
+  font-size: 24rpx;
+  color: #FD553A;
+  margin-top: 6rpx;
+}
+
+/* 日历 */
+.calendar{
+  margin-top: 10rpx;
+}
+.calendar .calc-header{
+  height: 90rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+}
+.calendar .calc-header view{
+  width: 14.28%;
+  text-align: center;
+}
+.calendar .date-number{
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+.calendar .date-number::after{
+  content: '';
+  width: 670rpx;
+  height: 1px;
+  background: #ECECEC;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.calendar .date-number .date-item{
+  width: 14.28%;
+  height: 90rpx;
+  font-size: 26rpx;
+  display: flex;
+  justify-content: center;
+}
+.calendar .date-number .date-item view{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40rpx;
+}
+.turn-page{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  font-size: 24rpx;
+  color: #C7C7C9;
+  display: flex;
+  align-items: center;
+}
+.turn-page image{
+  width: 14rpx;
+  height: 24rpx;
+  margin-left: 10rpx;
+}
+.front-month{
+  left: 40rpx;
+}
+.front-month image{
+  transform: rotate(180deg);
+  margin: 0 10rpx 0 0 !important;
+}
+.next-month{
+  right: 40rpx;
+}
+.punched{
+  background: #FD553A !important;
+  color: white;
+}
+.grey{
+  color: grey;
+}

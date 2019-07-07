@@ -1,0 +1,168 @@
+<import src="../../utils/wxParse/wxParse.wxml" />
+
+<!-- 顶部 -->
+<view class='top-wrap' bindtap='goTencent'>
+  <!-- <view>最近学到：第6章</view> -->
+  <view class='onair-title' wx:if="{{onAirTitle}}">[直播] {{onAirTitle}}</view>
+  <view class='go-btn'>进入腾讯课堂学习</view>
+</view>
+
+<!-- 选项卡 -->
+<view class='tabbar {{fixedNav ? "tab-fixed" : ""}}' id='tabbar'>
+  <view class='tab-item {{currentTab == index ? "on" : ""}}' wx:for="{{tabs}}" wx:key="index" bindtap='switchTab' data-idx='{{index}}'>{{item.text}}</view>
+</view>
+
+<!-- 课程大纲 -->
+<view class='outline' wx:if="{{currentTab == 0}}">
+  <view class='outline-title'>{{title}}</view>
+  <progress
+    percent="{{progress}}"
+    border-radius="4px"
+    activeColor='#FD553A'
+    class='progress' />
+  <view class='have-learned'>已学习{{progress}}%</view>
+  <view class='course' wx:for="{{outlineList}}" wx:key="index">
+    <!-- 主标题 -->
+    <view class='course-name {{index == currentSlide ? "" : "have-border"}}' bindtap='toggleSlide' data-idx='{{index}}'>
+      <view class='course-left'>
+        <!-- <view>
+          <text wx:if="{{index < 9}}">{{'0' + (index + 1)}}</text>
+          <text wx:else>{{index + 1}}</text>
+        </view> -->
+        <view class='main-title'>
+          <view>{{item.classTitle}}</view>
+          <view>
+            <block wx:if="{{item.noneCommit}}">未学完，{{item.noneCommit}}次作业未提交</block>
+            <block wx:else>已学完</block>
+          </view>
+        </view>
+      </view>
+      <image src='../../images/top-arrow.png' class='{{index == currentSlide ? "" : "rotate-img"}}'></image>
+    </view>
+    <!-- 子课程 -->
+    <view class='course-wrap' wx:if="{{index == currentSlide}}">
+      <view>
+        <view class='sub-course' hover-class='none' wx:for-item="sub" wx:for="{{item.listArrangement}}" wx:key="index">
+          <view class='sub-name'>
+            <image
+              src='{{sub.startTimestamp < timestamp && sub.endTimestamp > timestamp ? "../../images/can-play.png" : "../../images/cant-play.png"}}'>
+            </image>
+            <text class='{{sub.startTimestamp < timestamp && sub.endTimestamp > timestamp ? "orange" : ""}}'>{{sub.arrangementName}}</text>
+          </view>
+          <view class='course-time'>
+            <view class='{{sub.startTimestamp < timestamp && sub.endTimestamp > timestamp ? "orange" : ""}}'>
+              <block wx:if="{{sub.startTimestamp > timestamp || sub.endTimestamp < timestamp }}">
+                <block wx:if="{{sub.homeworkList}}">已提交作业</block>
+                <block wx:else> 未提交作业</block>
+              </block>
+              <block wx:if="{{sub.startTimestamp < timestamp && sub.endTimestamp > timestamp }}">直播中</block>
+            </view>
+            <image src='../../images/is-air.png' wx:if="{{sub.startTimestamp < timestamp && sub.endTimestamp > timestamp}}"></image>
+          </view>
+          <image
+            src='../../images/submit-works.png'
+            class='submit-works'
+            data-arrangementid='{{sub.arrangementId}}'
+            data-vipcourseid='{{sub.arrangementCourseid}}'
+            catchtap='submitWorks'
+            wx:if="{{!sub.homeworkList && sub.startTimestamp < timestamp}}">
+          </image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 热门课程 -->
+<view wx:if="{{currentTab == 1}}">
+  <view class='courses-list'>
+    <view class='courses-title'>热门课程</view>
+    <navigator url='../courseDetail/courseDetail?id={{item.id}}' class='courses-item' hover-class='none' wx:for="{{hotList}}" wx:key="index">
+      <view class='courses-img'>
+        <image src='{{item.picurl}}'></image>
+        <view class='courses-data'>
+          <view>
+            <image src='../../images/watched.png'></image>
+            <text>{{item.hot}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='courses-desc'>
+        <view class='desc-title'>{{item.title}}</view>
+        <view class='desc-price'>￥{{item.currentprice}}</view>
+      </view>
+    </navigator>
+  </view>
+
+  <view class='courses-list'>
+    <view class='courses-title'>折扣课程</view>
+    <navigator url='../courseDetail/courseDetail?id={{item.id}}' class='courses-item' hover-class='none' wx:for="{{discountList}}" wx:key="index">
+      <view class='courses-img'>
+        <image src='{{item.picurl}}'></image>
+        <view class='courses-data'>
+          <view>
+            <image src='../../images/watched.png'></image>
+            <text>{{item.watched}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='courses-desc'>
+        <view class='desc-title'>{{item.title}}</view>
+        <view class='desc-price'>￥{{item.currentprice}} <text>￥{{item.originalprice}}</text></view>
+      </view>
+    </navigator>
+  </view>
+</view>
+
+<!-- 底部按钮栏 -->
+<view class='bottom-bar'>
+  <view>
+    <image src='../../images/contact.png'></image>
+    <text>咨询老师</text>
+    <button open-type='contact'>咨询老师</button>
+  </view>
+  <view>
+    <image src='../../images/share.png'></image>
+    <text>分享课程</text>
+    <button open-type='share'>咨询老师</button>
+  </view>
+  <view bindtap='toClock'>
+    <image src='../../images/clock.png'></image>
+    <text>打卡详情</text>
+  </view>
+  <view catchtap='toMyWorks'>
+    <image src='../../images/work.png'></image>
+    <text>我的作业</text>
+  </view>
+</view>
+
+<!-- 打卡弹窗 -->
+<view class='card-modal' wx:if="{{showMadal}}">
+  <view class='card'>
+    <view class='card-img'>
+      <image src='../../images/modal-img.png'></image>
+      <view>- 分享打卡可获取1枚demo币 -</view>
+    </view>
+    <view class='card-btn'>
+      <view bindtap='clockIn'>确认打卡</view>
+      <view bindtap='goToShare'>打卡并分享</view>
+    </view>
+  </view>
+</view>
+
+<!-- 打卡成功询问框 -->
+<clock-modal
+  id="clock"
+  cancel-btn="留下来"
+  confirm-btn="前往腾讯课堂"
+  bind:confirm="goTencent">
+    <view>打卡成功，准备好上课吧</view>
+</clock-modal>
+
+<!-- 提交作业成功询问框 -->
+<clock-modal
+  id="submit"
+  confirm-btn="我知道了"
+  showCancel="{{false}}">
+    <view>提交成功，请等待老师批阅</view>
+</clock-modal>

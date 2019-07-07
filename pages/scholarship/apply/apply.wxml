@@ -1,0 +1,139 @@
+<view class="apply-title">请提交相关信息</view>
+
+<!-- 表单 -->
+<view class='form-container'>
+
+  <!-- 选择表单 -->
+  <view class='form-item' bindtap='uploadResume'>
+    <view>上传简历</view>
+    <view class='item-right'>
+      <view>{{ resumeDetail ? resumeDetail.resumeName : '未上传' }}</view>
+      <image src='../../../images/tap.png'></image>
+    </view>
+  </view>
+
+  <view class='form-item'>
+    <view>目前年薪</view>
+    <view class='item-right'>
+      <picker bindchange="chooseSalary" value="{{currentSalary}}" range="{{salaryList}}">{{salaryList[currentSalary]}}</picker>
+      <image src='../../../images/tap.png'></image>
+    </view>
+  </view>
+
+  <view class='form-item'>
+    <view>期望年薪</view>
+    <view class='item-right'>
+      <picker bindchange="chooseHopeSalary" value="{{currentHopeSalary}}" range="{{salaryList}}">{{salaryList[currentHopeSalary]}}</picker>
+      <image src='../../../images/tap.png'></image>
+    </view>
+  </view>
+
+  <view class='add-hope'>添加意向公司(最多3个)</view>
+
+  <!-- 添加意向公司 -->
+  <view class='intention'>
+    <view class='form-item2' wx:for="{{ selectedIntentionList }}" wx:key="index">
+      <view class='company-info'>
+        <image src='{{ item.companyImg }}'></image>
+        <view>
+          <view>{{ item.companyName }}</view>
+          <view class='company-position'>{{ item.positionName }}</view>
+        </view>
+      </view>
+      <image
+      src='../../../images/scholarship/delete.png'
+      class='delete-conpany'
+      data-idx='{{ index }}'
+      bindtap='deleteCompany'></image>
+    </view>
+  </view>
+
+
+  <view class='add-btn' bindtap='addCompany'>
+    <image src='../../../images/scholarship/add.png'></image>
+    <view>添加意向公司</view>
+  </view>
+
+  <view class='confirm-btn' bindtap='submitApply'>确认申请</view>
+</view>
+
+<!-- 弹窗 -->
+<pop-up id="pop" show-close-btn="{{ false }}">
+  <view class='dialog-title'>请按步骤完成操作</view>
+
+  <view class='step'>
+    <view class='index'>第一步</view>
+    <view class='desc'>
+    <view>前往电脑浏览器输入网址</view>
+      <text>gper.gupaoedu.com/scancode</text>
+    </view>
+    <image src='../../../images/scholarship/step1.jpg' class='step-img1'></image>
+  </view>
+
+  <view class='step'>
+    <view class='index'>第二步</view>
+    <view class='desc'>
+      点击右下方
+      <text>扫码上传</text> 同步简历
+    </view>
+    <image src='../../../images/scholarship/step2.png' class='step-img2'></image>
+  </view>
+
+  <view class='bottom-bar'>
+    <view class='btn-item' bindtap='closeDialog'>取消</view>
+    <view class='btn-item' bindtap='scancode'>
+      <image src='../../../images/scholarship/scan-code.png'></image>
+      <view>扫码上传</view>
+    </view>
+  </view>
+</pop-up>
+
+<pop-up id="select" show-close-btn="{{ false }}">
+  <view class='dialog-title' wx:if="{{ currentSelect == 1 }}">选择意向公司</view>
+  <view class='dialog-position' wx:else bindtap='backUp'>
+    <image src='../../../images/scholarship/back.png' class='back-icon'></image>
+    <image src='{{ companyImg }}' class='selected-com'></image>
+  </view>
+  <view wx:if="{{ currentSelect == 2 }}" class='select-p'>选择职位</view>
+
+  <!-- 选择公司 -->
+  <view class='company-wrap' wx:if="{{ currentSelect == 1 }}">
+    <view class='company-item'
+      wx:for="{{ intentionList }}"
+      wx:key="index"
+      data-id='{{ item.id }}'
+      data-img='{{ item.logo }}'
+      data-name='{{ item.name }}'
+      bindtap='selectCompany'>
+        <view class='company-item-desc'>
+          <image src='{{ item.logo }}' class='company-img'></image>
+          <view>{{ item.name }}</view>
+        </view>
+        <image
+          src='../../../images/scholarship/selected.png'
+          class='icon'
+          wx:if="{{ item.id == companyId }}">
+        </image>
+    </view>
+  </view>
+
+  <!-- 选择职位 -->
+  <view class='company-wrap' wx:else>
+    <view class='company-item'
+      wx:for="{{ positionList }}"
+      wx:key="index"
+      data-id='{{ item.id }}'
+      data-name='{{ item.name }}'
+      bindtap='selectPosition'>
+        <view class='company-item-desc'>
+          <view>{{ item.name }}</view>
+        </view>
+        <image
+          src='../../../images/scholarship/selected.png'
+          class='icon'
+          wx:if="{{ item.id == positionId }}">
+        </image>
+    </view>
+  </view>
+  <view class='cancel-btn' bindtap='cancelSelect'>取消</view>
+</pop-up>

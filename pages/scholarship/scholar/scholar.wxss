@@ -1,0 +1,151 @@
+page {
+  padding: 0 30rpx 50rpx;
+  box-sizing: border-box;
+}
+.card {
+  width: 100%;
+  height: 307rpx;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card .bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  border-radius: 16rpx;
+}
+.card .card-title {
+  width: 160rpx;
+  height: 32rpx;
+  background: #CBB98E;
+  color: #83765A;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 32rpx;
+  margin-top: 33rpx;
+}
+.card .card-text {
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 40rpx;
+  color: #83765A;
+  font-weight: 600;
+  margin-top: 20rpx;
+}
+.card .card-time {
+  height: 66rpx;
+  line-height: 66rpx;
+  color: #85795D;
+  font-size: 24rpx;
+  text-align: center;
+  margin-top: 24rpx;
+  border-top: 1rpx solid #D8C393;
+}
+.card .card-status {
+  height: 56rpx;
+  padding: 0 45rpx;
+  background: #FD553A;
+  border-radius: 6rpx;
+  color: white;
+  line-height: 56rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+.card .card-status-opa {
+  background: transparent;
+}
+
+/* 投递信息 */
+
+.item-title {
+  font-size: 32rpx;
+  margin: 60rpx 0 30rpx;
+  font-weight: bold;
+}
+.resume-info {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.resume-info image {
+  width: 72rpx;
+  height: 72rpx;
+  margin-right: 28rpx;
+  border-radius: 4rpx;
+}
+.resume-info .resume-desc {
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+.resume-info .resume-desc .resume-position {
+  font-size: 26rpx;
+  color: #C8C8C8;
+  margin-top: 4rpx;
+}
+/* .resume-info .resume-desc .resume-position text {
+  padding-left: 39rpx;
+} */
+.resume-info .resume-desc .resume-time{
+  font-size: 26rpx;
+  color: #C8C8C8;
+  position: absolute;
+  right: 0;
+  top: 2rpx;
+}
+.hope {
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  height: 56rpx;
+  background: #F5F5F5;
+  margin-top: 36rpx;
+  padding-left: 24rpx;
+  box-sizing: border-box;
+}
+.hope image {
+  width: 31rpx;
+  height: 22rpx;
+  margin: 0 32rpx;
+}
+.not-pass {
+  font-size: 26rpx;
+  color: #C8C8C8;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.ov {
+  width: 400rpx;
+}
+.img-wrap {
+  display: flex;
+  margin-top: 38rpx;
+}
+.img-wrap image {
+  width: 160rpx;
+  height: 160rpx;
+  border: 1rpx solid #ECECEC;
+  border-radius: 6rpx;
+  margin-right: 16rpx;
+  margin-bottom: 16rpx;
+}
+.personal-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  margin-bottom: 50rpx;
+}
+.personal-item view:last-child {
+  color: #666;
+}

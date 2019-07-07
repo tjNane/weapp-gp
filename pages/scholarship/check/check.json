@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "tips-modal": "/components/Modal/modal"
+  },
+  "navigationBarTitleText": " "
+}

@@ -1,0 +1,37 @@
+<view class="title">老学员登记</view>
+
+<view class='form-container'>
+  <view class='form-item'>
+    <view>QQ</view>
+    <input
+      type='number'
+      value="{{ qqNumber }}"
+      placeholder='输入报名时使用的QQ号'
+      bindinput='watchQQ'>
+    </input>
+  </view>
+  <view class='form-item'>
+    <view class='form-left'>
+      <view class='country'>
+        <picker
+        bindchange="selectCountry"
+        value="{{ currentAreaCode }}"
+        range="{{ areaCode }}"
+        range-key="name">
+          {{ areaCode[currentAreaCode].name }}
+        </picker>
+        <image src='../../images/turn-page.png'></image>
+      </view>
+      <view class='area-code'>
+        {{ areaCode[currentAreaCode].code }}
+      </view>
+    </view>
+    <input
+    type='number'
+    value="{{ telNumber }}"
+    placeholder='报名登记的手机号'
+    bindinput='watchTel'></input>
+  </view>
+</view>
+
+<view class='check-btn' bindtap='submitForm'>登记</view>

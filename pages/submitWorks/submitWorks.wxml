@@ -1,0 +1,27 @@
+<view class='wrap'>
+  <!-- 说明文字 -->
+  <view class='tips'>
+    <image src='../../images/detection.png'></image>
+    <view>{{tipsText}}</view>
+  </view>
+  <!-- 输入框 -->
+  <view class='input-wrap'>
+    <input
+      focus
+      placeholder='输入作业地址'
+      placeholder-class='pla'
+      value="{{clipBoardText}}"
+      bindinput='watchInput'>
+    </input>
+  </view>
+  <!-- 备注 -->
+  <textarea
+    class='textarea'
+    placeholder='添加备注(50字以内)'
+    placeholder-class='pla'
+    maxlength='50'
+    value="{{remark}}"
+    bindinput='watchTextarea'>
+  </textarea>
+  <view class='submit' bindtap='confirmSubmit'>确认提交</view>
+</view>

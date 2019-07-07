@@ -1,0 +1,22 @@
+<!-- 无结果页 -->
+<default-page image-src="../../images/default/default2.png" tip-text="你还没有收藏课程" wx:if="{{!myCollectionList.length}}">
+</default-page>
+
+<view class='collect-title'wx:if="{{myCollectionList.length}}">共收藏了 {{total}} 课程</view>
+<view class='courses-list'>
+  <navigator url='../courseDetail/courseDetail?id={{item.id}}' class='courses-item' hover-class='none' wx:for="{{myCollectionList}}" wx:key="index">
+    <view class='courses-img'>
+      <image src='{{item.picurl}}'></image>
+      <view class='courses-data'>
+        <view>
+          <image src='../../images/watched.png'></image>
+          <text>{{item.hot}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='courses-desc'>
+      <view class='desc-title'>{{item.title}}</view>
+      <view class='desc-price'>￥{{item.currentprice}}</view>
+    </view>
+  </navigator>
+</view>

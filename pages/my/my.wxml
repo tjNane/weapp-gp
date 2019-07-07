@@ -1,0 +1,76 @@
+<view class='personal-wrap'>
+  <!-- 个人信息 -->
+  <view class='personal-info'>
+    <image src='{{userPhoto}}' class='user-img'></image>
+    <view>
+      <view class='user-name'>{{userName}}</view>
+    </view>
+  </view>
+
+  <!-- 菜单按钮 -->
+  <view class='menu'>
+    <navigator url='../shoppingMall/shoppingMall?coinsCount={{personalNumber.coinsCount}}' class='menu-item' hover-class='none'>
+      <image src='../../images/my/menu1.png'></image>
+      <view class='menu-number'>{{personalNumber.coinsCount || 0}}</view>
+      <view class='menu-desc'>demo币</view>
+    </navigator>
+    <navigator url='../myCollection/myCollection' class='menu-item' hover-class='none'>
+      <image src='../../images/my/menu2.png'></image>
+      <view class='menu-number'>{{personalNumber.collectionCount || 0}}</view>
+      <view class='menu-desc'>收藏</view>
+    </navigator>
+    <navigator url='../discountCoupon/discountCoupon' class='menu-item' hover-class='none'>
+      <image src='../../images/my/menu3.png'></image>
+      <view class='menu-number'>{{personalNumber.discountCouponCount || 0}}</view>
+      <view class='menu-desc'>优惠券</view>
+    </navigator>
+    <navigator url='../myTrack/myTrack' class='menu-item' hover-class='none'>
+      <image src='../../images/my/menu4.png'></image>
+      <view class='menu-number'>{{personalNumber.footPrintCount || 0}}</view>
+      <view class='menu-desc'>足迹</view>
+    </navigator>
+  </view>
+
+  <!-- 信息 -->
+  <view class='info'>
+
+    <view class='info-item' bindtap='toScholar'>
+      <view class='info-text'>
+        <image src='../../images/my/info4.png'></image>
+        <text>奖学金</text>
+      </view>
+      <view class='info-right'>
+        <view class='info-progress' wx:if="{{ scholarStatus }}">
+          <image src='../../images/scholarship/progress.png'></image>
+          <view>{{ scholarStatusText }}</view>
+        </view>
+        <image src='../../images/tap.png' class='tap'></image>
+      </view>
+    </view>
+
+    <navigator url='../shareRecord/shareRecord' class='info-item' hover-class='none'>
+      <view class='info-text'>
+        <image src='../../images/my/info2.png'></image>
+        <text>分享有奖</text>
+      </view>
+      <image src='../../images/tap.png' class='tap'></image>
+    </navigator>
+
+    <navigator url='../questions/questions' class='info-item' hover-class='none'>
+      <view class='info-text'>
+        <image src='../../images/my/info1.png'></image>
+        <text>常见问题</text>
+      </view>
+      <image src='../../images/tap.png' class='tap'></image>
+    </navigator>
+
+    <view class='info-item' hover-class='none'>
+      <view class='info-text'>
+        <image src='../../images/my/info3.png'></image>
+        <text>联系客服/反馈</text>
+      </view>
+      <image src='../../images/tap.png' class='tap'></image>
+      <button open-type='contact'>客服</button>
+    </view>
+  </view>
+</view>

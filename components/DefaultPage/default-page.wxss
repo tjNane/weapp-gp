@@ -1,0 +1,25 @@
+.wrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 130rpx;
+}
+.img{
+  width: 400rpx;
+  height: 400rpx;
+  margin-bottom: 50rpx;
+}
+.tips{
+  font-size: 32rpx;
+}
+.btn{
+  width: 340rpx;
+  height: 80rpx;
+  background: #FD553A;
+  color: white;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  border-radius: 8rpx;
+  margin-top: 40rpx;
+}

@@ -1,0 +1,25 @@
+<view class='wrap' wx:if="{{shareList.length}}">
+  <view class='share-item' wx:for="{{shareList}}" wx:key="index">
+    <!-- <view class='user-name'>
+      <view class='name-left'>
+        <image src='{{item.userImg}}'></image>
+        <text>{{item.userName}}</text>
+      </view>
+      <view class='share-time'>{{item.shareTime}}</view>
+    </view> -->
+    <view class='course-name'>报名课程{{item.title}} <text>{{item.utime}}</text></view>
+    <view class='award'>
+      <view>
+        <image src='../../images/award.png'></image>
+        <text>奖励{{item.gpergold}}demo币</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 无结果页 -->
+<default-page
+  image-src="../../images/default/default1.png"
+  tip-text="你还没有相关分享奖励"
+  wx:else>
+</default-page>

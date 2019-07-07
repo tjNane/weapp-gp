@@ -1,0 +1,71 @@
+<!-- 卡片 -->
+<view class='card'>
+  <image src='../../../images/scholarship/bg.png' class='bg'></image>
+  <view class='card-title'>奖学金内容</view>
+  <view class='card-text'>{{ scholarship.name }}</view>
+  <view class='card-time'>{{ scholarship.utime }}申请</view>
+  <view class='card-status {{applyScholarship.status != 3 ? "card-status-opa" : ""}}'>
+    <text wx:if="{{ applyScholarship.status == 1 }}">正在审核中...  </text>
+    <text wx:if="{{ applyScholarship.status == 2 }}">审核成功</text>
+    <text wx:if="{{ applyScholarship.status == 3 }}" bindtap='reApply'>审核失败，重新申请</text>
+  </view>
+</view>
+
+<!-- 投递信息 -->
+<view class='resume'>
+  <view class='item-title'>投递信息</view>
+  <view class='resume-info'>
+    <image src='../../../images/scholarship/resume.png'></image>
+    <view class='resume-desc'>
+      <view>{{ applyResume.resumeName }}</view>
+      <view class='resume-position'>
+        <text>{{ applyResume.utime }}上传</text>
+      </view>
+    </view>
+  </view>
+  <view class='hope'>
+    <view>面前年薪{{ applyResume.currentAnnualSalary }}</view>
+    <image src='../../../images/scholarship/arrow.png'></image>
+    <view>期望年薪{{ applyResume.expectedAnnualSalary }}</view>
+  </view>
+</view>
+
+<!-- 入职公司 -->
+<view class='company'>
+  <view class='item-title'>入职公司</view>
+  <view class='resume-info'>
+    <image src='{{ company.logo }}'></image>
+    <view class='resume-desc'>
+      <view class='ov'>{{ company.name }}</view>
+      <view class='resume-position'>{{ position.name }}</view>
+    </view>
+    <view class='not-pass'>{{ companyStatusText }}</view>
+  </view>
+
+  <view class='img-wrap'>
+    <block wx:for="{{ applyScholarship.offerurlArr }}" wx:key="index">
+      <image src='{{item}}' data-url='{{ item }}' bindtap='previewImg'></image>
+    </block>
+  </view>
+</view>
+
+<!-- 个人信息 -->
+<view class='personal'>
+  <view class='item-title'>个人信息</view>
+  <view class='personal-item'>
+    <view>姓名</view>
+    <view>{{ applyScholarship.name }}</view>
+  </view>
+  <view class='personal-item'>
+    <view>身份证号</view>
+    <view>{{ applyScholarship.identityCard }}</view>
+  </view>
+  <view class='personal-item'>
+    <view>联系电话</view>
+    <view>{{ applyScholarship.mobile }}</view>
+  </view>
+  <view class='personal-item'>
+    <view>联系邮箱</view>
+    <view>{{ applyScholarship.email }}</view>
+  </view>
+</view>

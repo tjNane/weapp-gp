@@ -1,0 +1,5 @@
+<view class='wrap'>
+  <image src='{{imageSrc}}' class='img'></image>
+  <view class='tips'>{{tipText}}</view>
+  <view class='btn' wx:if="{{showBtn}}" bindtap='tapBtn'>{{btnText}}</view>
+</view>

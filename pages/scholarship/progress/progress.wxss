@@ -1,0 +1,129 @@
+page {
+  padding: 0 32rpx 120rpx;
+  box-sizing: border-box;
+}
+
+.apply-title {
+  font-size: 48rpx;
+  font-weight: bold;
+}
+
+.item-title {
+  font-size: 32rpx;
+  margin: 60rpx 0 30rpx;
+  font-weight: bold;
+}
+.resume-info {
+  display: flex;
+  align-items: center;
+}
+.resume-info image {
+  width: 72rpx;
+  height: 72rpx;
+  margin-right: 28rpx;
+  border-radius: 4rpx;
+}
+.resume-info .resume-desc {
+  /* height: 72rpx; */
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+.resume-info .resume-desc .resume-position {
+  font-size: 26rpx;
+  color: #C8C8C8;
+  margin-top: 4rpx;
+}
+.resume-info .resume-desc .resume-position text {
+  padding-left: 39rpx;
+}
+.resume-info .resume-desc .resume-time{
+  font-size: 26rpx;
+  color: #C8C8C8;
+  position: absolute;
+  right: 0;
+  top: 2rpx;
+}
+.resume-name {
+  width: 350rpx;
+}
+.resume-status {
+  height: 56rpx;
+  padding-left: 23rpx;
+  background: #F5F5F5;
+  font-size: 26rpx;
+  line-height: 56rpx;
+}
+.resume-status-active {
+  background: #FEE9E5;
+  color: #FD553A;
+}
+.resume-status-normal {
+  color: #999;
+}
+.hope {
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  height: 56rpx;
+  background: #F5F5F5;
+  margin-top: 36rpx;
+  padding-left: 24rpx;
+  box-sizing: border-box;
+}
+.hope image {
+  width: 31rpx;
+  height: 22rpx;
+  margin: 0 32rpx;
+}
+.mb40 {
+  margin-bottom: 40rpx;
+}
+.mb30 {
+  margin-bottom: 30rpx;
+}
+.mb60 {
+  margin-bottom: 64rpx;
+}
+.modal-title {
+  font-size: 36rpx;
+  font-weight: 500;
+}
+.modal-text {
+  font-size: 28rpx;
+  margin-top: 30rpx;
+}
+
+.bottom-bar {
+  width: 100%;
+  height: 98rpx;
+  border-top: 1rpx solid #E9E9E9;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+  background: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  font-size: 32rpx;
+}
+.bottom-bar view:first-child {
+  color: #999;
+  flex: 1;
+  text-align: center;
+}
+.bottom-bar view:last-child {
+  width: 396rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  background: #FD553A;
+  color: white;
+  border-radius: 6rpx;
+}

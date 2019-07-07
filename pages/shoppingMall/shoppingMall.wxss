@@ -1,0 +1,196 @@
+.shopping-info{
+  padding: 0 35rpx;
+  box-sizing: border-box;
+  margin-top: 30rpx; 
+}
+.gupao-gold-coin{
+  display: flex;
+  align-items: flex-end;
+}
+.gupao-gold-coin text:first-child{
+  font-size: 26rpx;
+  color: #999999;
+  margin-right: 6rpx;
+}
+.gupao-gold-coin text:nth-child(2){
+  font-size: 56rpx;
+  color: #252525;
+  padding: 0 10rpx;
+  font-weight: bold;
+  line-height: 50rpx;
+}
+.gupao-gold-coin image{
+  width: 42rpx;
+  height: 42rpx;
+}
+.shopping-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  box-sizing: border-box;
+  margin-top:63rpx; 
+}
+.shopping-list .shopping-list-result{
+  width: 326rpx;
+  margin-bottom: 72rpx;
+}
+.shopping-list .shopping-list-result image{
+  width: 326rpx;
+  height: 326rpx;
+  border-radius: 8rpx;
+}
+.shopping-list .shopping-list-name text{
+  font-size: 28rpx;
+  margin-top:24rpx;
+  font-weight: bold;
+  color: #252525;
+}
+.shopping-list .shopping-list-goldCoin{
+  display: flex;
+  align-items: center;
+  margin-top: 18rpx;
+  flex-wrap: wrap;
+}
+.shopping-list .shopping-list-goldCoin text:first-child{
+  font-size: 30rpx;
+}
+.shopping-list .shopping-list-goldCoin text:nth-child(2){
+  margin-right: 25rpx;
+  font-size: 26rpx;
+}
+.shopping-list .shopping-list-goldCoin view{
+  color: #FD553A;
+  font-size: 24rpx;
+  font-weight: bold;
+  border:1px solid;
+  box-sizing: border-box;
+  padding:0 5rpx;
+}
+.shopping-list .shopping-list-sold{
+  display: flex;
+  margin-top:10rpx;
+}
+.shopping-list .shopping-list-sold text{
+  color: #999999;
+  font-size: 26rpx;
+}
+.shopping-exchange{
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 32rpx;
+}
+.shopping-exchange-title{
+  display: flex;
+  justify-content: flex-start;
+}
+.shopping-exchange-title view{
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 50rpx;
+}
+.shopping-exchange-good{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.shopping-exchange-good image{
+  height: 172rpx;
+  width: 172rpx;
+  border-radius: 8rpx; 
+}
+.shopping-exchange-good .shopping-exchange-gold{
+  margin-left: 30rpx;
+  margin-bottom:25rpx; 
+}
+.shopping-exchange-good .shopping-exchange-gold text:first-child{
+  font-size:28rpx;
+}
+.shopping-exchange-good .shopping-exchange-goldCoin{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10rpx;
+}
+.shopping-exchange-good .shopping-exchange-goldCoin text:first-child{
+  font-size:30rpx;
+  margin-right: 10rpx;
+}
+.shopping-exchange-good .shopping-exchange-goldCoin text{
+  font-size:26rpx;
+  margin-right: 15rpx;
+}
+.shopping-exchange-good .shopping-exchange-goldCoin view{
+  color: #FD553A;
+  font-size: 24rpx;
+  font-weight: bold;
+  border:1px solid;
+  box-sizing: border-box;
+  padding: 0 10rpx;
+}
+.shopping-exchange-gold .shopping-list-sold text{
+  color: #999999;
+  font-size: 26rpx;
+}
+.shopping-exchange-info{
+  margin-top:98rpx;
+  font-size:32rpx;
+  font-weight: bold;
+}
+.shopping-address{
+  margin-top: 80rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+}
+.shopping-address input{
+  font-size: 28rpx;
+  text-align: right;
+  padding-right: 32rpx;
+}
+.shopping-exchange-btn{
+  color: white;
+  background: #FD553A;
+  width: 686rpx;
+  height: 80rpx;
+  margin:130rpx 0 10rpx 0;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.shopping-exchange-btn text{
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.pls-choose{
+  font-size: 30rpx;
+  color: #999;
+  text-align: left;
+}
+.shopping-exchange-address-display{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 32rpx;
+  box-sizing: border-box;
+  margin-top: 38rpx;
+}
+.shopping-exchange-address-display image{
+  width: 14rpx;
+  height: 24rpx;
+}
+.shopping-exchange-address-display .shopping-exchange-address .shopping-exchange-address-name{
+  font-size:28rpx;
+}
+.shopping-exchange-address-display .shopping-exchange-address .shopping-exchange-address-name text:first-child{
+  margin-right: 30rpx;
+}
+.shopping-exchange-address-display .shopping-exchange-address .shopping-exchange-address-detail text{
+  margin-top: 12rpx;
+  font-size:26rpx;
+}
+.shopping-exchange-address-display .shopping-exchange-address .shopping-exchange-address-detail text:not(:first-child){
+  /* margin-left: 12rpx; */
+}
+

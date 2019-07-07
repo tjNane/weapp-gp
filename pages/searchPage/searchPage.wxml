@@ -1,0 +1,89 @@
+<!-- 搜索框 -->
+<view class='search-wrap'>
+  <view class='search-bar'>
+    <image src='../../images/search.png'></image>
+    <input
+      placeholder="{{hotCourse[0].hotvalue || '请输入搜索关键字'}}"
+      value="{{searchValue}}"
+      focus
+      confirm-type="search"
+      bindinput='watchInput'
+      bindconfirm="confirmSearch">
+    </input>
+  </view>
+  <view class='cancel-btn' bindtap='backToHome'>取消</view>
+</view>
+
+<view wx:if="{{resultStatus == 1}}">
+  <!-- 热搜课程 -->
+  <view class='search-history'>
+    <view class='title'>热搜课程</view>
+    <view class='history-item'>
+      <view wx:for="{{hotCourse}}" wx:key="index" data-value='{{item.hotvalue}}' bindtap='chooseHistory'>{{item.hotvalue}}</view>
+    </view>
+  </view>
+
+  <!-- 搜索历史 -->
+  <view class='search-history'>
+    <view class='title'>
+      <view>搜索历史</view>
+      <image src='../../images/clean-history.png' wx:if="{{historyList.length}}" bindtap='clearHistory'></image>
+    </view>
+    <view class='history-item'>
+      <view wx:for="{{historyList}}" wx:key="index" data-value='{{item}}' bindtap='chooseHistory'>{{item}}</view>
+    </view>
+  </view>
+</view>
+
+<!-- 搜索结果 -->
+<view class='result' wx:if="{{resultStatus == 2}}">
+  <block wx:if="{{relativeLength}}">
+    <view class='result-title'>相关课程（{{relativeLength}}）</view>
+    <view class='result-list'>
+      <navigator url='../courseDetail/courseDetail?id={{item.id}}' class='result-item' hover-class='none' wx:for="{{relativeCourse}}" wx:key="index">
+        <view class='result-img'>
+          <image src='{{item.picurl}}'></image>
+          <view class='result-data'>
+            <view>
+              <image src='../../images/watched.png'></image>
+              <text>{{item.hot}}</text>
+            </view>
+          </view>
+        </view>
+        <view class='result-desc'>
+          <view class='desc-title'>{{item.title}}</view>
+          <view class='desc-price'>¥{{item.currentprice}}</view>
+        </view>
+      </navigator>
+    </view>
+  </block>
+
+  <block wx:if="{{previousLength}}">
+    <view class='result-title'>往期录播（{{previousLength}}）</view>
+    <view class='result-list'>
+      <navigator url='../videoDetail/videoDetail?id={{item.id}}' class='result-item' hover-class='none' wx:for="{{previous}}" wx:key="index">
+        <view class='result-img'>
+          <image src='{{item.picurl}}'></image>
+          <view class='result-data'>
+            <view>
+              <image src='../../images/watched.png'></image>
+              <text>{{item.watched}}</text>
+            </view>
+          </view>
+        </view>
+        <view class='result-desc'>
+          <view class='desc-title'>{{item.title}}</view>
+          <view class='desc-text'>{{item.text}}</view>
+        </view>
+      </navigator>
+    </view>
+  </block>
+
+</view>
+
+<!-- 无结果页 -->
+<default-page
+  image-src="../../images/default/default3.png"
+  tip-text="没找到你想要的内容"
+  wx:if="{{resultStatus == 3}}">
+</default-page>

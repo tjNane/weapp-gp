@@ -1,0 +1,227 @@
+<!-- 第一页 -->
+<view class='first-page' wx:if="{{ currentPage == 1 }}">
+  
+  <!-- 选择奖学金 -->
+  <view class='resume'>
+    <view class='item-title'>选择奖学金</view>
+
+    <view class='scholar-group'>
+      <view class='scholar-item'
+        wx:for="{{ scholarList }}"
+        wx:key="index"
+        data-idx="{{ index }}"
+        data-id="{{ item.id }}"
+        bindtap='selectScholar'>
+          <view class='scholar-info'>
+            <view class='scholar-title'>
+              <image src='{{ item.icon }}'></image>
+              <view>奖学金{{ index + 1 }}  {{ item.name }}</view>
+            </view>
+            <view class='scholar-need'>{{ item.require }}</view>
+          </view>
+          <image
+          src='{{item.checked ? "../../../images/scholarship/have-selected.png" : "../../../images/scholarship/no-select.png"}}'
+          class='select-icon'>
+          </image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 选择入职公司 -->
+  <view class='select-company'>
+    <view class='item-title'>选择入职公司</view>
+    <view class='company' bindtap='selectCompany'>
+      <view class='com-info'>
+        <image src='{{ currentCompany.companyLogo }}' wx:if="{{ currentCompany.companyName }}"></image>
+        <view>{{ currentCompany.companyName ? currentCompany.companyName: '请选择' }}</view>
+      </view>
+      <image src='../../../images/tap.png' class='right-icon'></image>
+    </view>
+  </view>
+
+  <!-- 上传学前学后录取offer -->
+  <view class='offer'>
+    <view class='item-title'>上传学前学后录取offer</view>
+
+    <view class='img-wrap'>
+      <view class='upload-img' wx:for="{{ offerImgList }}" wx:key="index">
+        <image src='{{ item }}' class='img'></image>
+        <image
+        src='../../../images/scholarship/delete.png'
+        class='icon'
+        data-idx='{{ index }}'
+        bindtap='deleteOfferImg'></image>
+      </view>
+      <view class='upload-btn' bindtap='uploadImg' wx:if="{{ showAddBtn }}">
+        <view></view>
+        <view></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部按钮 -->
+  <view class='bottom-bar'>
+    <view bindtap='toNext'>下一步</view>
+  </view>
+
+</view>
+
+
+<!-- 第二页 -->
+<view class='second-page' wx:if="{{ currentPage == 2 }}">
+  <view class='item-title'>确认个人信息</view>
+  <view class='item-sub'>审核通过后，我们将会联系你，请保证下列信息真实有效</view>
+
+  <view class='form-container'>
+    <view class='from-item'>
+      <view><text class='rules'>*</text>姓名</view>
+      <input
+        maxlength='10'
+        placeholder='本人真实姓名'
+        placeholder-class='pla'
+        bindinput="watchUsername"
+        value="{{ username }}"
+        focus="{{ usernameFocus }}">
+      </input>
+    </view>
+    <view class='from-item'>
+      <view><text class='rules'>*</text>身份证号</view>
+      <input
+        type='idcard'
+        placeholder='本人身份证号'
+        placeholder-class='pla'
+        bindinput="watchIdcard"
+        value="{{ idcard }}"
+        focus="{{ idcardFocus }}">
+      </input>
+    </view>
+    <view class='from-item'>
+      <view><text class='rules'>*</text>联系电话</view>
+      <input
+        type='number'
+        maxlength='11'
+        placeholder='本人手机号码'
+        placeholder-class='pla'
+        bindinput="watchTell"
+        value="{{ tell }}"
+        focus="{{ tellFocus }}">
+      </input>
+    </view>
+    <view class='from-item'>
+      <view><text class='rules'>*</text>联系邮箱</view>
+      <input
+        placeholder='例：xm123@gupao.com'
+        placeholder-class='pla'
+        bindinput="watchEmail"
+        value="{{ email }}"
+        focus="{{ emailFocus }}">
+      </input>
+    </view>
+    
+    <view class='next-btn1' bindtap='toPrevPage'>上一步</view>
+    <view class='next-btn' bindtap='showProtocol'>下一步</view>
+  </view>
+
+</view>
+
+<!-- 选择弹窗 -->
+<pop-up id="pop" show-close-btn="{{ false }}">
+  <view class='dialog-title'>选择入职公司</view>
+  <view class='pd30'>
+    <view
+    class='resume-info'
+    wx:for="{{intentionList}}"
+    wx:key="index"
+    data-item='{{ item }}'
+    bindtap='selectIntention'>
+      <image src='{{ item.companyLogo }}' class='{{item.status == 3 ? "" : "opa"}}'></image>
+      <view class='resume-desc'>
+        <view class='{{item.status == 3 ? "" : "opa-text"}}'>{{ item.companyName }}</view>
+        <view class='{{item.status == 3 ? "" : "opa-text"}}'>{{ item.positionName }}</view>
+      </view>
+      <view class='not-pass'>{{ item.statusText }}</view>
+    </view>
+  </view>
+  <view class='cancel-btn' bindtap='cancelSelect'>取消</view>
+</pop-up>
+
+<!-- 协议弹窗 -->
+<pop-up id="pop2" show-close-btn="{{ false }}" move="{{''}}">
+  <view class='dialog-title2'>demo奖学金协议</view>
+  <view class='agreement'>
+    <view class='agreement-text'>
+      本协议双方为湖南demo网络科技有限公司（以下简称：demo）和学员。本协议内容包括协议正文及所有demo学员已经发布的或将来有可能发布的各类规则，所有规则为协议不可分割的一部分，与协议正文具有同等法律效力。如有任何疑问，请咨询demo官方客服，本协议最终解释权归demo。
+    </view>
+    <view class='agreement-title'>
+      一、设立奖学金的目的和意义
+    </view>
+    <view class='agreement-text'>
+      demo为营造良好的学习氛围，本着不仅为学员提供学习机会，更为学员打造高端就业服务的理念，为激励学员更好的学习和就业，特以返还学费的方式向学员推出demo奖学金。
+    </view>
+    <view class='agreement-title'>
+      二、奖学金金额的设置
+    </view>
+    <view class='agreement-text'>
+      学员同意demo通过内推的方式为其提供就业机会，学员与内推的用人单位签约成功后，按照以下方式确定奖学金的金额：
+    </view>
+    <view class='agreement-text'>
+      1.签约用人单位为BATJ且提供的年薪≥40万的，奖学金的金额等于学员缴纳的全部学费；
+    </view>
+    <view class='agreement-text'>
+      2.内推前月收入≤1.5万，签约用人单位提供的月收入为内推前月收入的2倍以上的，奖学金的金额等于学员缴纳的全部学费X50%；
+    </view>
+    <view class='agreement-text'>
+      3.内推前月收入≤1.5万，签约用人单位提供的月收入为内推前月收入的1.5倍以上的，奖学金为GPer社区3000金币。
+    </view>
+    <view class='agreement-title'>
+      三、奖学金的发放
+    </view>
+    <view class='agreement-text'>
+      1.学员与用人单位签订《劳动合同》试用期转正后需向demo提出发放申请；
+    </view>
+    <view class='agreement-text'>
+      2.demo在收到学员申请后五个工作日内审核学员提供的材料，如符合领取奖学金条件的，demo需在三十个工作日向学员发放；
+    </view>
+    <view class='agreement-text'>
+      3. 学员超过试用期后180日未向demo提出申请的，demo可以拒绝发放。
+    </view>
+    <view class='agreement-title'>
+      四、demo的权利和义务
+    </view>
+    <view class='agreement-text'>
+      1. demo有权就学员提供的信息进行核实保证信息真实性；
+    </view>
+    <view class='agreement-text'>
+      2. demo有权利对获得奖学金的学员提供的不属于该学员与签约用人单位保密信息的部分在demo的招生、宣讲、推广等活动过程中展示；
+    </view>
+    <view class='agreement-text'>
+      3. demo有权以适当的方式在学员中对获得奖学金的学员进行形象宣传；
+    </view>
+    <view class='agreement-text'>
+      4. demo有义务按照本协议约定及时支付相应的奖学金。
+    </view>
+    <view class='agreement-title'>
+      五、学员的权利和义务
+    </view>
+    <view class='agreement-text'>
+      1. 学员有义务根据demo的要求提供发放奖学金所需要的材料，包括但不限于内推前的工资流水、签约用人单位的《劳动合同》及工资流水、学员的收款账户等；
+    </view>
+    <view class='agreement-text'>
+      2.如因学员提供材料不足以支持demo发放奖学金的，demo可拒绝向学员发放；
+    </view>
+    <view class='agreement-text'>
+      3. 学员承诺向demo提供信息的真实性、准确性，如学员提供虚假信息以达到骗取demo奖学金之目的的，demo可要求学员立即返还，如对demo造成损失的，需赔偿损失。
+    </view>
+    <view class='agreement-title'>
+      六、争议解决
+    </view>
+    <view class='agreement-text'>
+      双方在履行本协议过程中，如发生争议，需协商解决，协商不成的，双方均可向长沙市岳麓区人民法院提起诉讼。
+    </view>
+  </view>
+
+  <view class='bottom-bar2'>
+    <view class='btn-item2' bindtap='closeDialog'>不同意</view>
+    <view class='btn-item2' bindtap='submitForm'>同意</view>
+  </view>
+</pop-up>

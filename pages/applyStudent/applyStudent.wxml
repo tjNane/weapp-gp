@@ -1,0 +1,267 @@
+<view class='apply-subject'>
+
+  <form bindsubmit="formSubmit">
+    <!-- 选择你的学科 -->
+    <view wx:if="{{currentTab == 0}}">
+      <view class='apply-subject-title'>
+        <text>选择你的学科</text>
+        <text>1 /4</text>
+      </view>
+      <view class='subject-item'>
+        <view wx:for="{{studentSubject}}" wx:key="index" data-idx='{{index}}' data-id='{{item.courseInfo.courseId}}' class='subject-list {{selectedSubject == index ? "subject-list-active" : ""}}' bindtap='chooseSubject'>
+          <view class='student-subject'>
+            <view>{{item.courseInfo.courseName}}</view>
+            <image src='{{item.courseImage.imageUrlThird}}' class='sub-img'></image>
+          </view>
+          <view class='selected' wx:if="{{selectedSubject == index}}">
+            <image src='../../images/select.png'></image>
+          </view>
+        </view>
+      </view>
+      <view class='apply-confirm-subject' bindtap='switchNext' data-idx='0'>
+        <image src='../../images/apply-next.png'></image>
+      </view>
+    </view>
+
+
+    <!-- 你的基本信息 -->
+    <view wx:if="{{currentTab == 1}}" class='basic-information'>
+      <view class='apply-subject-title'>
+        <text>你的基本信息</text>
+        <text>2 /4</text>
+      </view>
+      <view>
+        <text>姓名</text>
+        <input value='{{applyInfo.vipName}}' bindinput='getVipName' style='width:188rpx;' placeholder="本人真实姓名" />
+      </view>
+      <view>
+        <text>年龄</text>
+        <input value='{{applyInfo.vipAge}}' type='number' bindinput='getVipAge' style='width:188rpx;' placeholder="本人真实年龄" />
+      </view>
+      <view class='apply-gender'>
+        <text>性别</text>
+        <view>
+          <image src='../../images/male-click.png' bindtap='changeGender' data-id='1' wx:if='{{gender==1}}'></image>
+          <image src='../../images/male.png' bindtap='changeGender' data-id='1' wx:if='{{gender==0}}'></image>
+          <text>男</text>
+          <image src='../../images/female.png' bindtap='changeGender' data-id='0' wx:if='{{gender==1}}'></image>
+          <image src='../../images/female-click.png' bindtap='changeGender' data-id='0' wx:if='{{gender==0}}'></image>
+          <text>女</text>
+        </view>
+      </view>
+      <view class='apply-city'>
+        <text>所在城市</text>
+        <view>
+          <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+            <view class="picker">
+              <text wx:if="{{applyInfo.vipCity}}"> {{applyInfo.vipCity}}</text>
+              <text wx:if="{{region[0] && !applyInfo.vipCity}}"> {{region[1]}}</text>
+              <text wx:if="{{!region[0] && !applyInfo.vipCity}}">请选择</text>
+            </view>
+          </picker>
+          <image src='../../images/go.png'></image>
+        </view>
+
+      </view>
+      <view class='apply-education'>
+        <text>学历</text>
+        <view>
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <view class="picker">
+              <block wx:if="{{applyInfo.vipEducation}}">
+                {{applyInfo.vipEducation}}
+              </block>
+              <block wx:if="{{!applyInfo.vipEducation}}">
+                {{array[index]}}
+              </block>
+            </view>
+          </picker>
+          <image src='../../images/go.png'></image>
+        </view>
+      </view>
+      <view class="apply-areaCode">
+        <text>手机号码</text>
+        <view >
+          <picker bindchange="bindAreaCodeChange" value="{{areaCodeIndex}}" range="{{areaCode}}" range-key="name">
+            <view class="picker">
+              {{areaCode[areaCodeIndex].name}} {{areaCode[areaCodeIndex].code}}
+            </view>
+          </picker>
+          <input value='{{vipTel}}' maxlength='11' type='number' bindinput='getVipTel' style='width:218rpx;' placeholder="本人手机号码" />
+        </view>
+
+      </view>
+      <view class='gain-verification'>
+        <text>验证码</text>
+        <input value='{{verificationCode}}' type='number' bindinput='getInputVerificationCode' style='width:157rpx;margin-left:195rpx;' placeholder="输入验证码 —" />
+        <button class="buttonget" disabled='{{disabled}}' bindtap="getVerificationCode">
+          {{time}}
+        </button>
+      </view>
+      <view>
+        <text>QQ号</text>
+        <input value='{{applyInfo.vipQq}}' maxlength='15' type='number' bindinput='getVipQq' style='width:300rpx;' placeholder="腾讯QQ号码" />
+      </view>
+      <view class='apply-confirm'>
+        <image src='../../images/apply-next.png' data-idx='1' bindtap='switchPrevious'></image>
+        <image src='../../images/apply-next.png' data-idx='1' bindtap='switchNext'></image>
+      </view>
+    </view>
+
+    <!-- 你的工作状况 -->
+    <view wx:if="{{currentTab == 2}}" class='work-status'>
+      <view class='apply-subject-title'>
+        <text>你的工作状况</text>
+        <text>3 /4</text>
+      </view>
+      <view>
+        <text>所在公司</text>
+        <input value='{{applyInfo.vipCompany}}' bindinput='getVipCompany' style='width:188rpx;' placeholder="如：demo" />
+      </view>
+      <view class='apply-work'>
+        <text>工作年限</text>
+        <input value='{{applyInfo.vipWorkAge}}' type='number' bindinput='getVipWorkAge' style='width:188rpx;' placeholder="输入工作年限" />
+      </view>
+      <view class='apply-job-title'>
+        <text>职位名称</text>
+        <view>
+          <picker bindchange="bindJobChange" value="{{jobIndex}}" range="{{jobArray}}">
+            <view class="picker">
+              <block wx:if="{{applyInfo.vipPosition}}">
+                {{applyInfo.vipPosition}}
+              </block>
+              <block wx:if="{{!applyInfo.vipPosition}}">
+                {{jobArray[jobIndex]}}
+              </block>
+            </view>
+          </picker>
+          <image src='../../images/go.png'></image>
+        </view>
+      </view>
+      <view class='apply-annualSalary'>
+        <text>目前年薪</text>
+        <view>
+          <picker bindchange="bindAnnualChange" value="{{annualSalaryIndex}}" range="{{annualSalaryArray}}">
+            <view class="picker">
+              <block wx:if="{{applyInfo.vipAnnualSalary}}">
+                {{applyInfo.vipAnnualSalary}}
+              </block>
+              <block wx:if="{{!applyInfo.vipAnnualSalary}}">
+                {{annualSalaryArray[annualSalaryIndex]}}
+              </block>
+            </view>
+          </picker>
+          <image src='../../images/go.png'></image>
+        </view>
+      </view>
+      <view class='apply-annualSalary'>
+        <text>期望年薪</text>
+        <view>
+          <picker bindchange="bindExpectAnnualChange" value="{{expectSalaryIndex}}" range="{{annualSalaryArray}}">
+            <view class="picker">
+              <block wx:if="{{applyInfo.vipExpectSalary}}">
+                {{applyInfo.vipExpectSalary}}
+              </block>
+              <block wx:if="{{!applyInfo.vipExpectSalary}}">
+                {{annualSalaryArray[expectSalaryIndex]}}
+              </block>
+            </view>
+          </picker>
+          <image src='../../images/go.png'></image>
+        </view>
+      </view>
+      <view class='apply-confirm'>
+        <image src='../../images/apply-next.png' data-idx='2' bindtap='switchPrevious'></image>
+        <image src='../../images/apply-next.png' data-idx='2' bindtap='switchNext'></image>
+      </view>
+    </view>
+
+    <!-- 对demo的接触 -->
+    <view wx:if="{{currentTab == 3}}" class='college-contact'>
+      <view class='apply-subject-title'>
+        <text>对demo的接触</text>
+        <text>4 /4</text>
+      </view>
+      <view>
+        <text>听哪位老师课程来报名</text>
+        <input bindtap='showPopUp' value='{{vipPubTeacher}}' disabled style='width:218rpx;' placeholder="请选择老师" />
+      </view>
+      <view>
+        <text>有无VIP学员推荐</text>
+        <radio-group value="{{applyInfo.vipRecommend}}" bindchange='getVipRecommend'>
+          <label style='margin-right:30rpx;'>
+            <radio value="1" checked="{{applyInfo.vipRecommend==1}}" />有
+          </label>
+          <label>
+            <radio value="0" checked="{{applyInfo.vipRecommend!=1}}" />无
+          </label>
+        </radio-group>
+      </view>
+      <view wx:if="{{applyInfo.vipRecommend==1}}">
+        <text>VIP学员QQ号</text>
+        <input value="{{applyInfo.vipRecommendName}}" maxlength='15' type='number' bindinput='getVipRecommendName' style='width:300rpx;' placeholder="腾讯QQ号码" />
+      </view>
+      <view class='apply-understandGupao'>
+        <text>了解demo渠道</text>
+        <view>
+          <picker bindchange="bindUnderstandGupaoChange" value="{{understandGupaoIndex}}" range="{{understandGupaoArray}}">
+            <view class="picker">
+              <block wx:if="{{applyInfo.vipOrigin}}">
+                {{applyInfo.vipOrigin}}
+              </block>
+              <block wx:if="{{!applyInfo.vipOrigin}}">
+                {{understandGupaoArray[understandGupaoIndex]}}
+              </block>
+            </view>
+          </picker>
+          <image src='../../images/go.png'></image>
+        </view>
+      </view>
+      <view class='apply-lectures'>
+        <text>听试听课次数</text>
+        <view>
+          <picker bindchange="bindLecturesChange" value="{{lecturesIndex}}" range="{{lecturesTimeArray}}">
+            <view class="picker">
+              <block wx:if="{{applyInfo.listenTime}}">
+                {{applyInfo.listenTime}}
+              </block>
+              <block wx:if="{{!applyInfo.listenTime}}">
+                {{lecturesTimeArray[lecturesIndex]}}
+              </block>
+            </view>
+          </picker>
+          <image src='../../images/go.png'></image>
+        </view>
+      </view>
+      <view class='college-contact-problem'>
+        <text>你最希望通过课程解决什么问题？</text>
+        <textarea class='textarea' value="{{applyInfo.vipStuRemark}}" bindinput='getVipStuRemark' placeholder="内容填写" focus wx:if="{{showTextarea}}" bindblur="toggleTextShow" placeholder-class='grey-text' />
+        <view class='cover {{applyInfo.vipStuRemark ? "" : "grey-text"}}' wx:if="{{!showTextarea}}" bindtap='toggleTextShow'>{{applyInfo.vipStuRemark ? applyInfo.vipStuRemark : '内容填写'}}</view>
+      </view>
+      <view class='apply-confirm'>
+        <image src='../../images/apply-next.png' data-idx='3' bindtap='switchPrevious'></image>
+        <image src='../../images/apply-confirm.png' data-idx='3' bindtap='applyConfirm'></image>
+      </view>
+    </view>
+  </form>
+</view>
+
+<!-- 弹窗 -->
+<pop-up id="pop">
+  <view style='padding-bottom:50rpx;font-size:30rpx;'>
+    <!-- <checkbox-group bindchange="chooseTeachers" class="check-group">
+      <label class="checkbox" wx:for="{{teachersListByCourseId}}" wx:key="index">
+        <checkbox value="{{item.userId}},{{item.userName}}" color="#FD553A"/>{{item.userName}}
+      </label>
+    </checkbox-group> -->
+    <view class='checkbox-wrap'>
+      <view class='checkbox-item' wx:for="{{teachersListByCourseId}}" wx:key="index">
+        <text>{{item.userName}}</text>
+        <view class='checkbox-img' bindtap='btnChooseTeachers' data-index="{{index}}" data-checked="{{item.checked}}" data-user="{{item.userName}}" data-id="{{item.userId}}" data-item='{{item}}'>
+          <image src="../../images/check-correct.png" wx:if="{{item.checked}}"></image>
+        </view>
+      </view>
+    </view>
+    <view class='check-btn' bindtap='closepop'>确定</view>
+  </view>
+</pop-up>

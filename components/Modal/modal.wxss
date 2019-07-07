@@ -1,0 +1,69 @@
+.shadow{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,.32);
+  z-index: 60;
+}
+.shadow .modal{
+  width: 636rpx;
+  height: 286rpx;
+  background: white;
+  border-radius: 20rpx;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 900;
+}
+.modal .content{
+  height: 192rpx;
+  color: #252525;
+  font-size: 36rpx;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal .modal-btn{
+  display: flex;
+  height: 94rpx;
+}
+.modal .modal-btn view{
+  height: 100%;
+  width: 50%;
+  text-align: center;
+  line-height: 94rpx;
+  font-size: 32rpx;
+  position: relative;
+  border-radius: 0 0 0 20rpx;
+}
+.modal .modal-btn view:last-child{
+  color: #FD553A;
+  border-radius: 0 0 20rpx 0;
+} 
+.modal .modal-btn view:last-child::after{
+  content: '';
+  width: 1px;
+  height: 64rpx;
+  background: #E9E9E9;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+.tap{
+  background: #eee;
+}
+.one-btn{
+  border-radius:0 0 20rpx 20rpx !important;
+  width:100% !important;
+  text-align:center;
+  color:#252525 !important;
+}

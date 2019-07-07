@@ -1,0 +1,18 @@
+<view class="title">打卡成功，分享成功可获取1枚demo币</view>
+
+<view class='poster-wrap'>
+  <canvas canvas-id='canvas' class='canvas'></canvas>
+  <view class='go-tencent' bindtap='goTencent'>前往腾讯课堂学习</view>
+</view>
+
+<view class='pop-btns'>
+  <view>
+    <image src='../../images/wechat.png' class='share-img'></image>
+    <text>分享至好友</text>
+    <button open-type='share'>分享</button>
+  </view>
+  <view bindtap='savePoster'>
+    <image src='../../images/save-poster.png'></image>
+    <text>保存海报</text>
+  </view>
+</view>

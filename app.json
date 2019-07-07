@@ -1,0 +1,71 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/learningCenter/learningCenter",
+    "pages/my/my",
+    "pages/bindWechat/bindWechat",
+    "pages/scholarship/receive1/receive1",
+    "pages/scholarship/check/check",
+    "pages/scholarship/scholar/scholar",
+    "pages/scholarship/progress/progress",
+    "pages/scholarship/apply/apply",
+    "pages/applyStudent/applyStudent",
+    "pages/shoppingMall/shoppingMall",
+    "pages/author/author",
+    "pages/learningDetail/learningDetail",
+    "pages/questions/questions",
+    "pages/shareRecord/shareRecord",
+    "pages/discountCoupon/discountCoupon",
+    "pages/personalInfo/personalInfo",
+    "pages/myCollection/myCollection",
+    "pages/shareClock/shareClock",
+    "pages/submitWorks/submitWorks",
+    "pages/myWorks/myWorks",
+    "pages/clockIn/clockIn",
+    "pages/myaddress/myaddress",
+    "pages/learningInformation/learningInformation",
+    "pages/teacherPage/teacherPage",
+    "pages/courseDetail/courseDetail",
+    "pages/videoDetail/videoDetail",
+    "pages/searchPage/searchPage",
+    "pages/todayCourse/todayCourse",
+    "pages/hotCourse/hotCourse",
+    "pages/myTrack/myTrack",
+    "pages/enterSchool/enterSchool",
+    "pages/schoolProtocol/schoolProtocol"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle": "black"
+  },
+  "navigateToMiniProgramAppIdList": [],
+  "tabBar": {
+    "color": "#C7C7C9",
+    "selectedColor": "#FD553A",
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "发现好课",
+        "iconPath": "images/tabs/find.png",
+        "selectedIconPath": "images/tabs/find-active.png"
+      },
+      {
+        "pagePath": "pages/learningCenter/learningCenter",
+        "text": "学习中心",
+        "iconPath": "images/tabs/learn.png",
+        "selectedIconPath": "images/tabs/learn-active.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/tabs/my.png",
+        "selectedIconPath": "images/tabs/my-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

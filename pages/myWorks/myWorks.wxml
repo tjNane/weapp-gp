@@ -1,0 +1,47 @@
+<!-- 无结果页 -->
+<default-page image-src="../../images/default/default9.png" tip-text="你还没有提交课程作业" wx:if="{{!haveWorks}}">
+</default-page>
+
+<view class='outline' wx:else>
+  <view class='course' wx:for="{{workList}}" wx:key="index">
+    <!-- 主标题部分 -->
+    <view class='course-name {{index == currentSlide ? "no-border" : ""}}' bindtap='toggleSlide' data-idx='{{index}}'>
+      <view class='course-left'>
+        <view>
+          <text wx:if="{{workList.length - index <= 9}}">{{'0' + (workList.length - index)}}</text>
+          <text wx:else>{{workList.length - index}}</text>
+        </view>
+        <view class='main-title'>
+          <view>{{item.classTitle}}</view>
+          <view class='sub-text'>提交{{item.replyNum + item.noneReplyNum}}次作业，{{item.replyNum}}次批阅</view>
+        </view>
+      </view>
+      <image src='../../images/top-arrow.png' class='{{index == currentSlide ? "" : "rotate-img"}}'></image>
+    </view>
+    <!-- 项目列表 -->
+    <view class='course-wrap' wx:if="{{index == currentSlide}}">
+      <view class='pd50'>
+        <view class='project-wrap' wx:for-item="sub" wx:for="{{item.listArrangement}}" wx:key="index">
+          <view class='read-over {{sub.homeworkList[0].replyStatus ? "line" : ""}}' wx:if="{{sub.homeworkList[0].replyStatus}}">
+            <view class='teacher'>
+              <view class='teacher-left'>
+                <image src='../../images/user.png'></image>
+                <text>{{sub.homeworkList[0].replyTeachername}}</text>
+                <view>已批阅</view>
+              </view>
+              <view class='teacher-right'>{{sub.homeworkList[0].ctime}}</view>
+            </view>
+            <view class='evaluate'>{{sub.homeworkList[0].replyContext || '暂无回复'}}</view>
+          </view>
+          <view class='project'>
+            <view class='ov'>{{sub.arrangementName}}</view>
+            <view class='project-url'>
+              <image src='../../images/works.png'></image>
+              <view>{{sub.homeworkList[0].homeworkUrl || '未上传作业地址'}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,28 @@
+<!-- 无结果页 -->
+<default-page image-src="../../images/default/default8.png" tip-text="没有你最近的足迹" wx:if="{{!trackList.length}}">
+</default-page>
+
+<view class='courses-list' wx:else>
+  <view class='total'>共浏览了 {{total}} 课程</view>
+  <navigator url='../courseDetail/courseDetail?id={{item.id}}' class='courses-item' hover-class='none' wx:for="{{trackList}}" wx:key="index">
+
+    <!-- 图片 -->
+    <view class='courses-img'>
+      <image src='{{item.picurl}}'></image>
+      <view class='courses-data'>
+        <view>
+          <image src='../../images/watched.png'></image>
+          <text>{{item.hot}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 描述 -->
+    <view class='courses-desc'>
+      <view class='desc-title'>{{item.title}}</view>
+      <view class='desc-price' wx:if="{{item.coursetype == 1}}">￥{{item.currentprice}}</view>
+      <view class='desc-price-grey' wx:if="{{item.coursetype == 2}}">录播</view>
+    </view>
+    
+  </navigator>
+</view>

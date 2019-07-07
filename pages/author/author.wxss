@@ -1,0 +1,37 @@
+.container{
+  padding: 65rpx;
+  font-size: 28rpx;
+}
+.top{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 40rpx;
+  border-bottom: 1rpx solid #F3F3F3;
+  margin-bottom: 40rpx;
+}
+.top image{
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+}
+.top .top-title{
+  margin: 20rpx 0 10rpx;
+}
+.top .top-desc{
+  color: #777;
+}
+
+.bottom view:nth-of-type(2){
+  color: #777;
+  margin: 10rpx 0 55rpx;
+}
+.bottom button{
+  background: #FD553A;
+  color: white;
+  font-size: 34rpx;
+  letter-spacing: 2px;
+}
+.bottom button::after{
+  border:0;
+}

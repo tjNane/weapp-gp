@@ -1,0 +1,65 @@
+
+/* tabbar */
+.tabbar{
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 32rpx;
+  box-sizing: border-box;
+  margin-bottom: 30rpx;
+}
+.tabbar .tab-item{
+  font-size: 32rpx;
+  position: relative;
+  height: 100%;
+  width: 128rpx;
+  line-height: 88rpx;
+  font-weight: bold;
+  text-align: center;
+}
+.tabbar .on{
+  color: #FD553A;
+}
+.tabbar .on::after{
+  content: '';
+  width: 128rpx;
+  height: 6rpx;
+  background: #FD553A;
+  border-radius: 3rpx;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.tips{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 84rpx;
+}
+.tips text{
+  font-size: 26rpx;
+  color: #999;
+}
+.tips image{
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 8rpx;
+}
+.discount-list{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.list-item{
+  width: 672rpx;
+  height: 350rpx;
+  margin-bottom: 20rpx;
+}
+.list-item image{
+  width: 100%;
+  height: 350rpx;
+}

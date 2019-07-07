@@ -1,0 +1,9 @@
+<view class='wrap'>
+  <view class='question-item' wx:for="{{questionList}}" wx:key="index">
+    <view class='question-title' data-idx='{{index}}' bindtap='toggleSlide'>
+      <view>{{item.title}}</view>
+      <image src='../../images/tap.png' class='{{index == current ? "rotate-img" : ""}}'></image>
+    </view>
+    <view class='question-content {{index == current ? "show" : ""}}' data-idx='{{index}}' bindtap='clipText'>{{item.content}}</view>
+  </view>
+</view>

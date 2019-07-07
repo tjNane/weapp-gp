@@ -1,0 +1,78 @@
+<view class='shopping-info'>
+  <view class='gupao-gold-coin'>
+    <text>当前demo币</text>
+    <text>{{goldCoin}}</text>
+    <image src='../../images/gold-coin.png'></image>
+  </view>
+
+  <view class='shopping-list'>
+    <view class='shopping-list-result'  wx:for="{{shoppingList}}" wx:key="index">
+      <view bindtap='showPopUp' data-id='{{item.id}}' data-remnants='{{item.remnants}}'>
+        <image src='{{item.logoUrl}}'></image>
+      </view>
+      <view class='shopping-list-name'>
+        <text>{{item.name}}</text>
+      </view>
+      <view class='shopping-list-goldCoin'>
+        <text>{{item.coins}}</text>
+        <text>demo币</text>
+        <view>
+          VIP价:{{item.vipCoins}}
+        </view>
+      </view>
+      <view class='shopping-list-sold'>
+        <text wx:if="{{item.remnants > 0}}">已售{{item.changedNum}}件</text>
+        <text wx:if="{{item.remnants == 0}}">已售完</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 弹窗 -->
+<pop-up id="pop">
+  <view class='shopping-exchange'>
+    <view class='shopping-exchange-title'>
+      <view>所兑换商品</view>
+    </view>
+    <view class='shopping-exchange-good'>
+      <image src='{{shoppingDetail.logoUrl}}'></image>
+      <view class='shopping-exchange-gold'>
+        <text>{{shoppingDetail.name}}</text>
+        <view class='shopping-exchange-goldCoin'>
+          <text>{{shoppingDetail.coins}}demo币</text>
+          <view>
+            VIP价:{{shoppingDetail.vipCoins}}
+          </view>
+        </view>
+        <view class='shopping-list-sold'>
+          <text wx:if="{{shoppingDetail.remnants > 0}}">已售{{shoppingDetail.changedNum}}件</text>
+          <text wx:if="{{shoppingDetail.remnants == 0}}">已售完</text>
+        </view>
+      </view>
+    </view>
+    <view class='shopping-exchange-info'>配送信息</view>
+    <view class='shopping-exchange-address-display' bindtap='chooseAddress'>
+      <view class='shopping-exchange-address' wx:if="{{addressInfo.userName}}">
+        <view class='shopping-exchange-address-name'>
+          <text>{{addressInfo.userName}}</text>
+          <text>{{addressInfo.telNumber}}</text>
+        </view>
+        <view class='shopping-exchange-address-detail'>
+          <text>{{addressInfo.provinceName}}</text>
+          <text>{{addressInfo.cityName}}</text>
+          <text>{{addressInfo.countyName}}</text>
+          <text>{{addressInfo.detailInfo}}</text>
+        </view>
+      </view>
+      <view class='pls-choose' wx:else>请选择您的配送地址</view>
+      <image src='../../images/turn-page.png'></image>
+    </view>
+    <view class='shopping-address'>
+      <text>邮箱地址</text>
+      <input bindinput="bindEmailInput" value='{{emailAddress}}' placeholder="本人邮箱地址" />
+    </view>
+    <view class='shopping-exchange-btn' bindtap='exchanges'>
+      <text>使用{{shoppingDetail.vipCoin}}demo币兑换</text>
+    </view>
+  </view>
+</pop-up>

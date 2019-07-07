@@ -1,0 +1,69 @@
+page {
+  background: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 40rpx;
+  padding: 100rpx 0;
+}
+
+.form-item {
+  background: white;
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  width: 710rpx;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+}
+
+.form-item input {
+  margin-left: 40rpx;
+  flex: 1;
+}
+
+.form-container .form-item:first-child {
+  border-bottom: 1rpx solid #f1f1f1;
+  border-radius: 6rpx 6rpx 0 0;
+}
+
+.form-container .form-item:last-child {
+  border-radius: 0 0 6rpx 6rpx;
+}
+
+.form-item .country, .form-left {
+  display: flex;
+  align-items: center;
+}
+
+.form-item .country {
+  padding-right: 20rpx;
+}
+.form-item .area-code {
+  border-right: 1rpx solid #f1f1f1;
+  border-left: 1rpx solid #f1f1f1;
+  padding: 0 20rpx;
+}
+
+.form-item .country image {
+  width: 15rpx;
+  height: 26rpx;
+  margin-left: 20rpx;
+}
+
+.check-btn {
+  width: 710rpx;
+  height: 80rpx;
+  background: #FD553A;
+  color: white;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 6rpx;
+  margin-top: 80rpx;
+  font-size: 32rpx;
+  letter-spacing: 2px;
+}
